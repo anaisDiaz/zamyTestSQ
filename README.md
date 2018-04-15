@@ -1,2 +1,2 @@
 # zamy
-Zamy web application
+Zamy web app for events
