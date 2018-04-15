@@ -5,13 +5,15 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { EventsComponent } from './events/events.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { EventListComponent } from './events/event-list/event-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EventsComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule
