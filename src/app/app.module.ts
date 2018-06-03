@@ -12,6 +12,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FirebaseService } from './services/firebase.service';
 import { UserService } from './services/user.service';
 import { EventService } from './services/event.service';
+import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -27,7 +28,8 @@ const firebaseConfig = {
     AppComponent,
     EventRegistrationComponent,
     EventListComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    AttendanceListComponent
   ],
   imports: [
     BrowserModule,

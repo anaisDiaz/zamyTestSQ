@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseService } from './firebase.service';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { CollectionName } from '../enums/collection-name';
 import { Event } from '../models/event.model';
 
