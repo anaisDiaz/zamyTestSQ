@@ -19,7 +19,7 @@ export class EventListComponent implements OnInit, OnDestroy {
   }
 
   goToEventDetails(eventId: string): void {
-    this.router.navigate(['event', eventId]);
+    this.router.navigate(['EVENT', eventId]);
   }
 
   ngOnDestroy() {
