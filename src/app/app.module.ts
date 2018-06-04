@@ -17,6 +17,7 @@ import { AttendanceListComponent } from './attendance/attendance-list/attendance
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AttendanceService } from './services/attendance.service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -48,7 +49,8 @@ const firebaseConfig = {
     AngularFireAuth,
     FirebaseService,
     UserService,
-    EventService],
+    EventService,
+    AttendanceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

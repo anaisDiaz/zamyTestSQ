@@ -14,4 +14,8 @@ export class UserService {
     return this.firebaseService.getDocumentById(CollectionName.user, id);
   }
 
+  getUserByUsername(username: string): Observable<User> {
+    return this.firebaseService.getCollectionWhere(CollectionName.user, 'username', '==', username);
+  }
+
 }

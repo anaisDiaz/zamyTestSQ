@@ -16,7 +16,11 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.authService.login(this.username, this.password).then(data => console.log(data));
+    this.authService.login(this.username, this.password).then(data => console.log(data)).catch(err => console.log('ERROR ' + err));
+  }
+
+  logout() {
+    this.authService.logout().then(data => console.log(data)).catch(err => console.log('ERROR ' + err));
   }
 
 }
