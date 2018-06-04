@@ -12,4 +12,8 @@ export class AttendanceService {
   getParticipants(eventId: string): Observable<Participant[]> {
     return this.firebaseService.getCollection(CollectionName.attendance);
   }
+
+  saveAttendance(eventId: string, participant: Participant) {
+    this.firebaseService.addDocument(CollectionName.attendance, participant , eventId);
+  }
 }
