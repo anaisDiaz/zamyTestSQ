@@ -39,14 +39,4 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     this.eventSubscriber.unsubscribe();
   }
 
-  saveAttendance() {
-    if (this.userId) {
-      this.attendanceService.saveAttendance(this.eventId, new Participant(this.userId, new Date()));
-      console.log('Attendance saved successfully');
-    } else {
-      console.log('No user');
-    }
-
-  }
-
 }
