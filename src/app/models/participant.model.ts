@@ -9,8 +9,7 @@ export class Participant {
 
     toJSON(): JSON {
         return JSON.parse(
-            '{"' + this.userId +
-            '":"' + this.inscriptionDate +
+            '{"inscriptionDate":"' + this.inscriptionDate +
             '"}'
         );
     }
