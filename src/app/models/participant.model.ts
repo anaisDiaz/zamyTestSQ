@@ -1,9 +1,9 @@
 export class Participant {
-    userId: string;
+    id: string;
     inscriptionDate: Date;
 
-    constructor(userId: string, inscriptionDate: Date) {
-        this.userId = userId;
+    constructor(id: string, inscriptionDate: Date) {
+        this.id = id;
         this.inscriptionDate = inscriptionDate;
     }
 
