@@ -3,10 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export const userCollectionName = 'user';
-
 @Injectable()
-export class FirebaseService {
+export class FirebaseDatabaseService {
 
   constructor(private angularFirestore: AngularFirestore) {
     angularFirestore.firestore.settings({ timestampsInSnapshots: true });
@@ -52,4 +50,5 @@ export class FirebaseService {
       }))
     );
   }
+
 }
