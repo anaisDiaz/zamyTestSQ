@@ -3,10 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export const userCollectionName = 'user';
-
 @Injectable()
-export class FirebaseService {
+export class FirebaseDatabaseService {
 
   constructor(private angularFirestore: AngularFirestore) {
     angularFirestore.firestore.settings({ timestampsInSnapshots: true });
@@ -33,9 +31,9 @@ export class FirebaseService {
     this.angularFirestore.collection(collectionName).doc(id).update(JSON.parse(jsonString));
   }
 
-  addDocumentNoId(collectionName: string, object: Object) {
+  addDocumentNoId(collectionName: string, object: Object): Promise<any> {
     const jsonString = JSON.stringify(object);
-    this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
+    return this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
   }
 
   getDocumentById(collectionName: string, id: string): Observable<any> {
@@ -52,4 +50,5 @@ export class FirebaseService {
       }))
     );
   }
+
 }

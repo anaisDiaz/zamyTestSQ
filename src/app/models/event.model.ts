@@ -7,20 +7,20 @@ export class Event {
     date: Date;
     price: number;
     lastRegisterDate: Date;
-    urlImage: string;
+    imageURL: string;
 
     constructor(name: string,
         location: string,
         date: Date,
         price: number,
         lastRegisterDate: Date,
-        urlImage: string) {
+        imageURL: string) {
             this.name = name;
             this.location = location;
             this.date = date;
             this.price = price;
             this.lastRegisterDate = lastRegisterDate;
-            this.urlImage = urlImage;
+            this.imageURL = imageURL;
     }
 
     toJSON(): JSON {
@@ -30,7 +30,7 @@ export class Event {
             '" , "date": "' + this.date +
             '" , "price": "' + this.price +
             '" , "lastRegisterDate": "' + this.lastRegisterDate +
-            '" , "urlImage": "' + this.urlImage +
+            '" , "urlImage": "' + this.imageURL +
             '" }'
         );
     }
