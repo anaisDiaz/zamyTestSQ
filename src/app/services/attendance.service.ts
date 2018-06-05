@@ -13,7 +13,8 @@ export class AttendanceService {
     return this.firebaseService.getCollection(CollectionName.events + '/' + eventId + '/' + CollectionName.participants);
   }
 
-  saveAttendance(eventId: string, userId: string, participant: Participant) {
-    this.firebaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants, participant, userId);
+  saveAttendance(eventId: string, participant: Participant) {
+    this.firebaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants,
+      participant, participant.userId);
   }
 }
