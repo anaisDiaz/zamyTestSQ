@@ -15,6 +15,6 @@ export class AttendanceService {
 
   saveAttendance(eventId: string, participant: Participant) {
     this.firebaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants,
-      participant, participant.userId);
+      participant, participant.id);
   }
 }
