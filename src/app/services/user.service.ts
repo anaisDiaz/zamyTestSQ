@@ -11,11 +11,11 @@ export class UserService {
   }
 
   getUserById(id: string): Observable<User> {
-    return this.firebaseService.getDocumentById(CollectionName.user, id);
+    return this.firebaseService.getDocumentById(CollectionName.users, id);
   }
 
   getUserByUsername(username: string): Observable<User> {
-    return this.firebaseService.getCollectionWhere(CollectionName.user, 'username', '==', username);
+    return this.firebaseService.getDocumentWhere(CollectionName.users, 'username', '==', username);
   }
 
 }

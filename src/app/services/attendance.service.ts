@@ -10,10 +10,10 @@ export class AttendanceService {
   constructor(private firebaseService: FirebaseService) { }
 
   getParticipants(eventId: string): Observable<Participant[]> {
-    return this.firebaseService.getCollection(CollectionName.attendance);
+    return this.firebaseService.getCollection(CollectionName.events + '/' + eventId + '/' + CollectionName.participants);
   }
 
-  saveAttendance(eventId: string, participant: Participant) {
-    this.firebaseService.addDocument(CollectionName.attendance, participant , eventId);
+  saveAttendance(eventId: string, userId: string, participant: Participant) {
+    this.firebaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants, participant, userId);
   }
 }
