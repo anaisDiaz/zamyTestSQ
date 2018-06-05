@@ -13,8 +13,12 @@ export class EventService {
     return this.firebaseDatabaseService.getCollection(CollectionName.events);
   }
 
-  save(event: Event): void {
-    this.firebaseDatabaseService.addDocumentNoId(CollectionName.events, event);
+  save(event: Event): Promise<any> {
+    return this.firebaseDatabaseService.addDocumentNoId(CollectionName.events, event);
+  }
+
+  update(eventId: string, event: Event) {
+    this.firebaseDatabaseService.updateDocument(CollectionName.events, event, eventId);
   }
 
   getEventById(id: string): Observable<Event> {

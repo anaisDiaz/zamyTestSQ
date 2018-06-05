@@ -17,7 +17,7 @@ import { AttendanceListComponent } from './attendance/attendance-list/attendance
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { AttendanceService } from './services/attendance.service';
 
 const firebaseConfig = {
@@ -48,6 +48,7 @@ const firebaseConfig = {
   providers: [
     AuthService,
     AngularFireAuth,
+    AngularFireStorage,
     FirebaseDatabaseService,
     UserService,
     EventService,
