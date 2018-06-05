@@ -9,11 +9,10 @@ export class FirebaseStorageService {
 
   constructor(private angularFireStorage: AngularFireStorage) { }
 
-  uploadFile(path: string, fileName: string, event): Observable<any> {
+  uploadFile(path: string, fileName: string, event): void {
     console.log('Uploading file');
     const ref = this.angularFireStorage.ref(path + '/' + fileName);
     const task = ref.put(event.target.files[0]);
-    console.log('reeef ' + ref.getDownloadURL());
-    return ref.getDownloadURL();
+    console.log('File uploaded');
   }
 }

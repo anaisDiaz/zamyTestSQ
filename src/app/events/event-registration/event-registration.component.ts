@@ -24,7 +24,7 @@ export class EventRegistrationComponent implements OnInit {
 
   uploadImage(uploadEvent) {
     this.firebaseStorageService.uploadFile(FolderName.events + '/' + this.event.id, FileName.eventImage
-      + AppSettings.imageFileExtension, uploadEvent).forEach(u => console.log('-----' + u));
+      + AppSettings.imageFileExtension, uploadEvent);
       // .subscribe(url => this.event.imageURL = url);
   }
 
@@ -36,7 +36,6 @@ export class EventRegistrationComponent implements OnInit {
     this.eventService.save(this.event).then(event => {
       this.event.id = event.id;
       this.uploadImage(this.uploadEvent);
-      this.eventService.update(this.event.id, this.event);
     });
   }
 }
