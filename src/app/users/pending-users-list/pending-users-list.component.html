@@ -1,0 +1,6 @@
+<h2>Usuarios pendientes para aprobar</h2>
+<div class="list-group" *ngFor="let pendingUser of pendingUsers">
+  <a href="/pending-user/{{pendingUser.id}}" class="list-group-item list-group-item-action">
+    {{pendingUser.firstname}} {{pendingUser.lastname}}
+  </a>
+</div>

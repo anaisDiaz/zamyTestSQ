@@ -6,6 +6,8 @@ import { EventListComponent } from './events/event-list/event-list.component';
 import { EventDetailComponent } from './events/event-detail/event-detail.component';
 import { LoginComponent } from './login/login.component';
 import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
+import { PendingUsersListComponent } from './users/pending-users-list/pending-users-list.component';
+import { PendingUserDetailComponent } from './users/pending-user-detail/pending-user-detail.component';
 
 const routes: Routes = [
   { path: 'event-registration', component: EventRegistrationComponent },
@@ -13,11 +15,12 @@ const routes: Routes = [
   { path: 'event/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },
   { path: 'event/:id/participants', component: AttendanceListComponent },
-  // { path: 'pending-user/all', component: ValidateUsersComponent }
+  { path: 'pending-user/all', component: PendingUsersListComponent },
+  { path: 'pending-user/:id', component: PendingUserDetailComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
-  exports: [ RouterModule ]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

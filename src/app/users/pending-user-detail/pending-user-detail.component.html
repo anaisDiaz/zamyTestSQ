@@ -1,0 +1,6 @@
+<div *ngIf="pendingUser">
+    <label class="col-sm-2 col-form-label">{{pendingUser.firstname}}</label>
+    <button type="button" class="btn btn-info" (click)="approve()">Aprobar</button>
+    <button type="button" class="btn btn-danger">Rechazar</button>
+</div>
+
