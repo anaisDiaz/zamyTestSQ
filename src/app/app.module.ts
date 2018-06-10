@@ -10,13 +10,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { FirebaseService } from './services/firebase.service';
+import { FirebaseDatabaseService } from './services/firebase-database.service';
 import { UserService } from './services/user.service';
 import { EventService } from './services/event.service';
 import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
 import { AuthService } from './services/auth.service';
 import { LoginComponent } from './login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { AttendanceService } from './services/attendance.service';
 
 const firebaseConfig = {
@@ -47,7 +48,8 @@ const firebaseConfig = {
   providers: [
     AuthService,
     AngularFireAuth,
-    FirebaseService,
+    AngularFireStorage,
+    FirebaseDatabaseService,
     UserService,
     EventService,
     AttendanceService],
