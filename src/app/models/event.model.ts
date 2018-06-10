@@ -3,6 +3,7 @@ import { Time } from '@angular/common';
 export class Event {
     id: string;
     name: string;
+    description: string;
     location: string;
     date: Date;
     price: number;
@@ -10,12 +11,14 @@ export class Event {
     imageURL: string;
 
     constructor(name: string,
+        description: string,
         location: string,
         date: Date,
         price: number,
         lastRegisterDate: Date,
         imageURL: string) {
             this.name = name;
+            this.description = description;
             this.location = location;
             this.date = date;
             this.price = price;
@@ -26,12 +29,14 @@ export class Event {
     toJSON(): JSON {
         return JSON.parse(
             '{"name": "' + this.name +
+            '" , "description": "' + this.location +
             '" , "location": "' + this.location +
-            '" , "date": "' + this.date +
+            '" , "date": "' + this.date.toISOString +
             '" , "price": "' + this.price +
             '" , "lastRegisterDate": "' + this.lastRegisterDate +
-            '" , "urlImage": "' + this.imageURL +
+            '" , "imageURL": "' + this.imageURL +
             '" }'
         );
     }
+    
 }

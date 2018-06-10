@@ -20,6 +20,7 @@ export class EventRegistrationComponent implements OnInit {
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
+    this.event= new Event('','','',new Date(),0,new Date(),'');
   }
 
   uploadImage(uploadEvent) {
@@ -33,11 +34,14 @@ export class EventRegistrationComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('guardando');
+    console.log(this.event.date.getDay);
     this.eventService.save(this.event).then(event => {
       this.event.id = event.id;
       this.uploadImage(this.uploadEvent);
       this.resetForm();
     });
+    
   }
 
   resetForm() {

@@ -1,3 +1,4 @@
+
 .space{
     padding: 60px;
 }
@@ -9,7 +10,6 @@
 
 .btn-success{
     width: 30%;
-    border-radius: 8px;
     margin: 20px;
     margin-left: 50px;
     padding: 3px;
@@ -19,7 +19,6 @@
 }
 .btn-danger{
     width: 30%;
-    border-radius: 8px;
     margin: 30px;
     margin-left: 120px;
     padding: 3px;

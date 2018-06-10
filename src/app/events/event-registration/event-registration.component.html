@@ -12,22 +12,23 @@
                   <!-- NOMBRE -->
                   <div class="form-group">
                       <label class="col-form-label" for="name">Nombre</label>
-                      <input type="text" class="form-control" placeholder="Ingrese el nombre " name="name" #name="ngModel" [(ngModel)] ="eventService.selectedEvent.name" required>
+                      <input type="text" class="form-control" placeholder="Ingrese el nombre " name="name" #name="ngModel" [(ngModel)] ="event.name" required>
                   </div>
+                  <!-- DESCRIPCION -->
+                  <div class="form-group">
+                    <label class="col-form-label" for="name">Descripcion</label>
+                    <input type="text" class="form-control" placeholder="Ingrese descripcion " name="description" #description="ngModel" [(ngModel)] ="event.description" required>
+                </div>
                   <!-- LUGAR -->
                   <div class="form-group">
                       <label class="col-form-label" for="location">Lugar</label>
-                      <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)] ="eventService.selectedEvent.location" required>
+                      <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)] ="event.location" required>
                   </div>
                   <!-- FECHA y HORA (INICIO DE EVENTO)-->
                   <div class="form-group">
                     <label class="col-form-label" for="date">Inicio de evento</label>
                     <div class="input-group">
-                      <label class="col-form-label" for="date">Fecha</label>
-                      <input type="date" class="form-control"  min="2018-06-06" max="2018-12-20" name="date" #date="ngModel" [(ngModel)] ="eventService.selectedEvent.date" required>
-                     
-                      <label class="col-form-label" for="inputTime">Hora</label>
-                      <input type="time" class="form-control"  id="inputTime" min="8:00" max="22:00">
+                      <input type="datetime-local" class="form-control"  name="date" #date="ngModel" [(ngModel)] ="event.date" required>
                       <span class="validity"></span>
                     </div>
                   </div>
@@ -40,7 +41,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text">S/.</span>
                           </div>
-                          <input type="text" class="form-control" aria-label="Price" name="price" #price="ngModel"  [(ngModel)] ="eventService.selectedEvent.price" required>
+                          <input type="text" class="form-control" aria-label="Price" name="price" #price="ngModel"  [(ngModel)] ="event.price" required>
                           <div class="input-group-append">
                             <span class="input-group-text">.00</span>
                           </div>
@@ -50,7 +51,7 @@
                   <!-- IMAGEN -->
                   <div class = "form-group">
                       <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
-                      <input type = "file"  (change)="setUploadEvent($event)" class = "form-control-file" accept =".png,.jpg"  name="urlImage" #urlImage="ngModel" [(ngModel)] ="eventService.selectedEvent.urlImage" required>
+                      <input type = "file"  (change)="setUploadEvent($event)"  accept =".png,.jpg"  name="imageURL" #imageURL="ngModel" [(ngModel)] ="event.imageURL" required>
                       <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
                       <br>
                       
@@ -60,12 +61,12 @@
                       <label class="col-form-label" for="lastRegisterDate">Limite de inscripcion</label>
                       <div class="input-group">
                         <label class="col-form-label" for="lastRegisterDate">Fecha</label>
-                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="eventService.selectedEvent.lastRegisterDate" required>
+                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="event.lastRegisterDate" required>
                         <span class="validity"></span>
                       </div>
                   </div>
                   <!-- BOTON REGISTRAR-->
-                  <button type = "submit" class = "btn btn-success" (click)="saveEvent()">
+                  <button  class = "btn btn-success" (click)="onSubmit()">
                       <font style = "vertical-align: inherit;"> 
                         <font style="vertical-align: inherit;">
                           <i class="fas fa-plus-circle"></i>
