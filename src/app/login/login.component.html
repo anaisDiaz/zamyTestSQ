@@ -12,10 +12,11 @@
 <div id="fullscreen_bg" class="fullscreen_bg">
 
 <div class="container">
-  <div class="card card-container">
+
+    <div class="jumbotron">
       <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->
     <div align = "center">
-      <div class="avatar" style="background-image: url(//ssl.gstatic.com/accounts/ui/avatar_2x.png)">
+      <div class="avatar" style="background-image: url(https://firebasestorage.googleapis.com/v0/b/zamy-d9d98.appspot.com/o/zamy-web%2FlogoZamy2.jpg?alt=media&token=b4a19afa-022b-4359-8e9a-862cae709727)">
       </div>
     </div>
       <!--<img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
@@ -28,18 +29,23 @@
         <label for="exampleInputPassword1">Contraseña</label>
         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingresar contraseña" [(ngModel)]="password">
       </div>
+      
+      <div align="center">
           <a href="#" class="forgot-password">
-            ¿Olvidaste tu contraseña?
+              <p class="text-muted"><small> ¿Olvidaste tu contraseña? </small></p>
           </a>
-          <div id="remember" class="checkbox">
-              <label>
-                  <input type="checkbox" value="remember-me"> Recordarme
-              </label>
-          </div>
-          <button type="button" class="btn btn-warning" (click)="login(username,password)">Login</button>
-      <a href="#" class="forgot-password">
-          ¿Eres Nuevo?, Registrate
-      </a>
+      </div>  
+          <button type="button" class="btn btn-warning btn-lg btn-block" (click)="login(username,password)">
+            <div align="center">
+            Login
+            </div>
+          </button>
+      <div align="center">
+          <a href="#" class="forgot-password">
+              <p class="text-muted"><small>¿Eres Nuevo?, Registrate</small></p>
+          </a>
+      </div>
   </div><!-- /card-container -->
+
 </div><!-- /container -->
 </div>
