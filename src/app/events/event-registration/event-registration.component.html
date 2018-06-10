@@ -1,5 +1,95 @@
-<p>
-  event-registration
-</p>
+<div class="container">
+  <header id="#FONDO">
+    <div class="space">
+      <div  class="row">
+        <!--REGISTRO -->
+        <div class="col-md-10 mx-auto mt-2">
+          <div class="card">
+              <br>
+              <h3 class="text-center">Registro de evento</h3>
+              <div class="card-body">
+                <form #eventForm="ngForm" (ngsubmit)="onSubmit(eventForm)">
+                  <!-- NOMBRE -->
+                  <div class="form-group">
+                      <label class="col-form-label" for="name">Nombre</label>
+                      <input type="text" class="form-control" placeholder="Ingrese el nombre " name="name" #name="ngModel" [(ngModel)] ="eventService.selectedEvent.name" required>
+                  </div>
+                  <!-- LUGAR -->
+                  <div class="form-group">
+                      <label class="col-form-label" for="location">Lugar</label>
+                      <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)] ="eventService.selectedEvent.location" required>
+                  </div>
+                  <!-- FECHA y HORA (INICIO DE EVENTO)-->
+                  <div class="form-group">
+                    <label class="col-form-label" for="date">Inicio de evento</label>
+                    <div class="input-group">
+                      <label class="col-form-label" for="date">Fecha</label>
+                      <input type="date" class="form-control"  min="2018-06-06" max="2018-12-20" name="date" #date="ngModel" [(ngModel)] ="eventService.selectedEvent.date" required>
+                     
+                      <label class="col-form-label" for="inputTime">Hora</label>
+                      <input type="time" class="form-control"  id="inputTime" min="8:00" max="22:00">
+                      <span class="validity"></span>
+                    </div>
+                  </div>
+                  
+                  <!-- COSTO -->
+                  <div class="form-group">
+                      <label class="control-label">Costo</label>
+                      <div class="form-group">
+                        <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">S/.</span>
+                          </div>
+                          <input type="text" class="form-control" aria-label="Price" name="price" #price="ngModel"  [(ngModel)] ="eventService.selectedEvent.price" required>
+                          <div class="input-group-append">
+                            <span class="input-group-text">.00</span>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  <!-- IMAGEN -->
+                  <div class = "form-group">
+                      <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
+                      <input type = "file" class = "form-control-file" accept ="image/*"  name="urlImage" #urlImage="ngModel" [(ngModel)] ="eventService.selectedEvent.urlImage" required>
+                      <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
+                      <br>
+                  </div>
+                  <!-- FIN INSCRIPCION -->
+                  <div class="form-group">
+                      <label class="col-form-label" for="lastRegisterDate">Limite de inscripcion</label>
+                      <div class="input-group">
+                        <label class="col-form-label" for="lastRegisterDate">Fecha</label>
+                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="eventService.selectedEvent.lastRegisterDate" required>
+                        <span class="validity"></span>
+                      </div>
+                  </div>
+                  <!-- BOTON REGISTRAR-->
+                  <button type = "submit" class = "btn btn-success">
+                      <font style = "vertical-align: inherit;"> 
+                        <font style="vertical-align: inherit;">
+                          <i class="fas fa-plus-circle"></i>
+                          Registrar
+                        </font>
+                      </font>
+                  </button>
+                  <!-- BOTON LIMPIAR-->
+                  <button type = "reset" class = "btn btn-danger  btn -lg">
+                      <font style = "vertical-align: inherit;"(click)="resetForm(eventForm)"> 
+                        <font style="vertical-align: inherit;">
+                          <i class="fas fa-sync-alt"></i>
+                          Limpiar
+                        </font>
+                      </font>
+                  </button>
+                </form>
+              </div>
+          </div>
+        </div>
+        
+       </div> 
+    </div>
+  </header>
+</div>
+
 <input type="file" (change)="setUploadEvent($event)" accept=".png,.jpg">
 <button (click)="saveEvent()">Registrar</button>

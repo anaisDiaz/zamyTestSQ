@@ -5,6 +5,7 @@ import { FirebaseStorageService } from '../../services/firebase-storage.service'
 import { FileName } from '../../enums/file-name';
 import { FolderName } from '../../enums/folder-name';
 import { AppSettings } from '../../app.settings';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-event-registration',
@@ -22,6 +23,11 @@ export class EventRegistrationComponent implements OnInit {
       , 30.69, new Date('February 4, 2016 23:59:00'), 'urlurl');
   }
 
+  onSubmit(eventForm: NgForm) {
+    this.eventService.insertEvent(eventForm.value);
+    this.resetForm(eventForm);
+  }
+
   uploadImage(uploadEvent) {
     this.firebaseStorageService.uploadFile(FolderName.events + '/' + this.event.id, FileName.eventImage
       + AppSettings.imageFileExtension, uploadEvent);
@@ -37,5 +43,10 @@ export class EventRegistrationComponent implements OnInit {
       this.event.id = event.id;
       this.uploadImage(this.uploadEvent);
     });
+  }
+  resetForm(eventForm?: NgForm) {
+    // tslint:disable-next-line:curly
+    if (eventForm != null)
+      eventForm.reset();
   }
 }

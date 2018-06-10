@@ -1,0 +1,29 @@
+.space{
+    padding: 60px;
+}
+.card{
+    background-color: rgba(6, 20, 10, 0.952);
+    opacity: .7;
+    color: beige;
+}
+
+.btn-success{
+    width: 30%;
+    border-radius: 8px;
+    margin: 20px;
+    margin-left: 50px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+.btn-danger{
+    width: 30%;
+    border-radius: 8px;
+    margin: 30px;
+    margin-left: 120px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
