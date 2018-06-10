@@ -15,17 +15,13 @@ import { NgForm } from '@angular/forms';
 export class EventRegistrationComponent implements OnInit {
   event: Event;
   uploadEvent: any;
+  eventForm: NgForm;
 
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
     this.event = new Event('Evento1', 'Lima,Chorrillos', new Date('February 4, 2016 14:00:00')
       , 30.69, new Date('February 4, 2016 23:59:00'), 'urlurl');
-  }
-
-  onSubmit(eventForm: NgForm) {
-    this.eventService.insertEvent(eventForm.value);
-    this.resetForm(eventForm);
   }
 
   uploadImage(uploadEvent) {
@@ -38,15 +34,15 @@ export class EventRegistrationComponent implements OnInit {
     this.uploadEvent = event;
   }
 
-  saveEvent() {
+  onSubmit() {
     this.eventService.save(this.event).then(event => {
       this.event.id = event.id;
       this.uploadImage(this.uploadEvent);
+      this.resetForm();
     });
   }
-  resetForm(eventForm?: NgForm) {
-    // tslint:disable-next-line:curly
-    if (eventForm != null)
-      eventForm.reset();
+  resetForm() {
+    if (this.eventForm != null)
+   this.eventForm.reset();
   }
 }
