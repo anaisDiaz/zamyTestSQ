@@ -15,13 +15,16 @@ body, html {
     background-image: linear-gradient(rgb(104, 145, 162), rgb(12, 97, 33));
 }
 
-.card-container.card {
+.jumbotron{
     max-width: 350px;
     padding: 40px 40px;
+    margin: 0 auto 25px;
+    margin-top: 50px;
 }
 
 .btn {
     font-weight: 700;
+    font-size: 14px;
     height: 36px;
     -moz-user-select: none;
     -webkit-user-select: none;
