@@ -3,10 +3,8 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export const userCollectionName = 'user';
-
 @Injectable()
-export class FirebaseService {
+export class FirebaseDatabaseService {
 
   constructor(private angularFirestore: AngularFirestore) {
     angularFirestore.firestore.settings({ timestampsInSnapshots: true });
@@ -28,16 +26,21 @@ export class FirebaseService {
     this.angularFirestore.collection(collectionName).doc(id).set(JSON.parse(jsonString));
   }
 
-  addDocumentNoId(collectionName: string, object: Object) {
+  updateDocument(collectionName: string, object: Object, id: string) {
     const jsonString = JSON.stringify(object);
-    this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
+    this.angularFirestore.collection(collectionName).doc(id).update(JSON.parse(jsonString));
+  }
+
+  addDocumentNoId(collectionName: string, object: Object): Promise<any> {
+    const jsonString = JSON.stringify(object);
+    return this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
   }
 
   getDocumentById(collectionName: string, id: string): Observable<any> {
     return this.angularFirestore.doc(collectionName + '/' + id).valueChanges();
   }
 
-  getCollectionWhere(collectionName: string, field: string, operator: any, value: any): Observable<any> {
+  getDocumentWhere(collectionName: string, field: string, operator: any, value: any): Observable<any> {
     return this.angularFirestore.collection(collectionName, ref => ref.where(field, operator, value)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
@@ -47,4 +50,5 @@ export class FirebaseService {
       }))
     );
   }
+
 }

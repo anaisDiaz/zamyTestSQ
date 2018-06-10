@@ -1,1 +1,10 @@
-<li *ngFor="let event of events" (click)="goToEventDetails(event.id)">{{event.id}}</li>
+<!DOCTYPE html>
+<div class="container">
+    <table class="table table-hover">
+          <tr  class="table-info" id="tr">
+            <th scope="col"><h1> Lista de Eventos</h1> </th>
+          </tr>
+          <tr class="table-primary" *ngFor="let event of events"><h5>{{event.name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{event.date }} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button type="button" class="btn btn-primary btn-sm" (click)="goToEventDetails(event.id)">Seguir Leyendo =></button></h5>
+          </tr>
+      </table> 
+</div>
