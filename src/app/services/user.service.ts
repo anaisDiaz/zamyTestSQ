@@ -18,4 +18,8 @@ export class UserService {
     return this.firebaseDatabaseService.getDocumentWhere(CollectionName.users, 'username', '==', username);
   }
 
+  getPendingUsers(): Observable<User[]> {
+    return this.firebaseDatabaseService.getDocumentWhere(CollectionName.users, 'status', '==', 0);
+  }
+
 }

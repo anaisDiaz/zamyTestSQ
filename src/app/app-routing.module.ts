@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'event/all', component: EventListComponent },
   { path: 'event/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'event/:id/participants', component: AttendanceListComponent}
+  { path: 'event/:id/participants', component: AttendanceListComponent },
+  // { path: 'pending-user/all', component: ValidateUsersComponent }
 ];
 
 @NgModule({
