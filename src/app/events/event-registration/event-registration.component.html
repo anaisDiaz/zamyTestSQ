@@ -4,7 +4,7 @@
       <div  class="row">
         <!--REGISTRO -->
         <div class="col-md-10 mx-auto mt-2">
-          <div class="card">
+          <div class="jumbotron">
               <br>
               <h3 class="text-center">Registro de evento</h3>
               <div class="card-body">
@@ -50,9 +50,10 @@
                   <!-- IMAGEN -->
                   <div class = "form-group">
                       <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
-                      <input type = "file" class = "form-control-file" accept ="image/*"  name="urlImage" #urlImage="ngModel" [(ngModel)] ="eventService.selectedEvent.urlImage" required>
+                      <input type = "file"  (change)="setUploadEvent($event)" class = "form-control-file" accept =".png,.jpg"  name="urlImage" #urlImage="ngModel" [(ngModel)] ="eventService.selectedEvent.urlImage" required>
                       <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
                       <br>
+                      
                   </div>
                   <!-- FIN INSCRIPCION -->
                   <div class="form-group">
@@ -64,7 +65,7 @@
                       </div>
                   </div>
                   <!-- BOTON REGISTRAR-->
-                  <button type = "submit" class = "btn btn-success">
+                  <button type = "submit" class = "btn btn-success" (click)="saveEvent()">
                       <font style = "vertical-align: inherit;"> 
                         <font style="vertical-align: inherit;">
                           <i class="fas fa-plus-circle"></i>
@@ -73,8 +74,8 @@
                       </font>
                   </button>
                   <!-- BOTON LIMPIAR-->
-                  <button type = "reset" class = "btn btn-danger  btn -lg">
-                      <font style = "vertical-align: inherit;"(click)="resetForm(eventForm)"> 
+                  <button type = "reset" class = "btn btn-danger  btn -lg" (click)="resetForm(eventForm)">
+                      <font style = "vertical-align: inherit;"> 
                         <font style="vertical-align: inherit;">
                           <i class="fas fa-sync-alt"></i>
                           Limpiar
@@ -91,5 +92,5 @@
   </header>
 </div>
 
-<input type="file" (change)="setUploadEvent($event)" accept=".png,.jpg">
+<input type="file" accept=".png,.jpg">
 <button (click)="saveEvent()">Registrar</button>

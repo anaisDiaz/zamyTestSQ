@@ -20,8 +20,6 @@ export class EventRegistrationComponent implements OnInit {
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
-    this.event = new Event('Evento1', 'Lima,Chorrillos', new Date('February 4, 2016 14:00:00')
-      , 30.69, new Date('February 4, 2016 23:59:00'), 'urlurl');
   }
 
   uploadImage(uploadEvent) {
@@ -41,8 +39,19 @@ export class EventRegistrationComponent implements OnInit {
       this.resetForm();
     });
   }
+
   resetForm() {
     if (this.eventForm != null)
    this.eventForm.reset();
   }
+
+  collectEventData(){
+    this.event.name = this.eventForm.value.name;
+    this.event.location = this.eventForm.value.location;
+    this.event.date = this.eventForm.value.date
+    this.event.imageURL = this.eventForm.value.imageURL;
+    this.event.lastRegisterDate = this.eventForm.value.lastRegisterDate;
+  }
+
+
 }
