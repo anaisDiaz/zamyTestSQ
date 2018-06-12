@@ -5,12 +5,15 @@ import { User } from '../../models/user.model';
 import { AttendanceService } from '../../services/attendance.service';
 import { Participant } from '../../models/participant.model';
 import { EventService } from '../../services/event.service';
+import { filter } from 'rxjs/operators';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-attendance-list',
   templateUrl: './attendance-list.component.html',
   styleUrls: ['./attendance-list.component.css']
 })
+
 export class AttendanceListComponent implements OnInit, OnDestroy {
   event: Event;
   eventId: string;
@@ -18,15 +21,18 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   routeSubscriber: any;
   participantsSubscriber: any;
   eventSubscriber: any;
+  cadenaOrdenada: any;
+  temporal: any;
 
   constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute,
-    private eventService: EventService) { }
+    private eventService: EventService, private userService: UserService) { }
 
   ngOnInit() {
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.eventId = params['id']);
     this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event => this.event = event);
     this.participantsSubscriber = this.attendanceService.getParticipants(this.eventId)
       .subscribe(participants => this.participants = participants);
+   
   }
 
   ngOnDestroy() {
@@ -35,4 +41,11 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
     this.participantsSubscriber.unsubscribe();
   }
 
+  
+  listas: any[]=[{name: 'lucia', edad: 12, position:'manager'},{name:'alis', edad: 17, position:'designer'},{name: 'julia', edad: 19, position: 'programmer'}];
+  
+  OrdenarName()
+  {
+    return (this.listas.filter(name));
+  }
 }
