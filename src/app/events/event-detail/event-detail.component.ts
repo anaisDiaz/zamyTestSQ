@@ -30,6 +30,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event => this.event = event);
     this.authService.getAuth().forEach(authUser => {
       this.participantId = authUser.email.replace(AppSettings.emailDomain, '');
+      console.log('verifico email? : ' + authUser.emailVerified);
     });
   }
 

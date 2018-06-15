@@ -21,6 +21,7 @@ import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/stora
 import { AttendanceService } from './services/attendance.service';
 import { PendingUsersListComponent } from './users/pending-users-list/pending-users-list.component';
 import { PendingUserDetailComponent } from './users/pending-user-detail/pending-user-detail.component';
+import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -40,7 +41,8 @@ const firebaseConfig = {
     AttendanceListComponent,
     LoginComponent,
     PendingUsersListComponent,
-    PendingUserDetailComponent
+    PendingUserDetailComponent,
+    UserRegistrationComponent
   ],
   imports: [
     FormsModule,

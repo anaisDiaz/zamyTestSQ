@@ -5,6 +5,12 @@ import { AppSettings } from '../app.settings';
 
 @Injectable()
 export class AuthService {
+  actionCodeSettings = {
+    // Your redirect URL
+    url: 'https://localhost:4200/login',
+    handleCodeInApp: true,
+    email: 'kjav2377@gmail.com'
+  };
 
   constructor(private angularFireAuth: AngularFireAuth) { }
 
@@ -24,4 +30,12 @@ export class AuthService {
     return this.angularFireAuth.authState.pipe(auth => auth);
   }
 
+  sendVerificationEmail() {
+    this.angularFireAuth.authState.subscribe(user => {
+      user.sendEmailVerification(this.actionCodeSettings).then(() => {
+        console.log('email sent');
+        console.log('user email: ' + user.email);
+      });
+    });
+  }
 }
