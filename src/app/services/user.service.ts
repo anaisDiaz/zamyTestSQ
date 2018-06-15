@@ -22,7 +22,11 @@ export class UserService {
     return this.firebaseDatabaseService.getDocumentWhere(CollectionName.users, 'status', '==', 0);
   }
 
-  updateUser(userId: string, user: User) {
+  update(userId: string, user: User) {
     this.firebaseDatabaseService.updateDocument(CollectionName.users, user, userId);
+  }
+
+  save(userId: string, user: User) {
+    this.firebaseDatabaseService.addDocument(CollectionName.users, user, userId);
   }
 }

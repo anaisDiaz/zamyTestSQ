@@ -23,7 +23,7 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
 
   approve() {
     this.pendingUser.status = 1;
-    this.userService.updateUser(this.pendingUserId, this.pendingUser);
+    this.userService.update(this.pendingUserId, this.pendingUser);
     console.log('usuario aprobado');
   }
 

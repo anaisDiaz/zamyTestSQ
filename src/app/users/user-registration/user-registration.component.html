@@ -1,3 +1,16 @@
-<p>
-  user-registration works!
-</p>
+<label class="col-form-label" for="emailField">
+  Email</label>
+<input [(ngModel)]="user.email" type="text" class="form-control" placeholder="email" id="emailField">
+
+<label class="col-form-label" for="firstNameField">
+  Nombres</label>
+<input [(ngModel)]="user.firstname" type="text" class="form-control" placeholder="nombres" id="firstNameField">
+
+<label class="col-form-label" for="idField">
+  Codigo de matricula</label>
+<input [(ngModel)]="user.id" type="text" class="form-control" placeholder="codigo de matricula" id="idField">
+
+<label for="passwordField">Password</label>
+<input [(ngModel)]="user.password" type="password" class="form-control" id="passwordField" placeholder="Password">
+
+<button type="submit" class="btn btn-primary" (click)="registerUserApplication()">Continuar</button>

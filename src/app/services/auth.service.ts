@@ -8,8 +8,7 @@ export class AuthService {
   actionCodeSettings = {
     // Your redirect URL
     url: 'https://localhost:4200/login',
-    handleCodeInApp: true,
-    email: 'kjav2377@gmail.com'
+    handleCodeInApp: true
   };
 
   constructor(private angularFireAuth: AngularFireAuth) { }
