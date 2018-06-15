@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
-
-const emailDomain = '@bcp.com.pe';
+import { AppSettings } from '../app.settings';
 
 @Injectable()
 export class AuthService {
@@ -10,7 +9,7 @@ export class AuthService {
   constructor(private angularFireAuth: AngularFireAuth) { }
 
   registerUser(username: string, password: string): Promise<any> {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(username + emailDomain, password);
+    return this.angularFireAuth.auth.createUserWithEmailAndPassword(username + AppSettings.emailDomain, password);
   }
 
   logout(): Promise<any> {
@@ -18,7 +17,7 @@ export class AuthService {
   }
 
   login(username: string, password: string): Promise<any> {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(username + emailDomain, password);
+    return this.angularFireAuth.auth.signInWithEmailAndPassword(username + AppSettings.emailDomain, password);
   }
 
   getAuth() {
