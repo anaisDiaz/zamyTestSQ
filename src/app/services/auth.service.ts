@@ -25,6 +25,4 @@ export class AuthService {
     return this.angularFireAuth.authState.pipe(auth => auth);
   }
 
-  sendVerificationEmail() {
-  }
 }
