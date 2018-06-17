@@ -24,16 +24,16 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   isAdmin: boolean;
 
   constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute,
-    private eventService: EventService,  private authService: AuthService) { }
+    private eventService: EventService, private authService: AuthService) { }
 
   ngOnInit() {
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.eventId = params['id']);
     this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event => this.event = event);
     this.participantsSubscriber = this.attendanceService.getParticipants(this.eventId)
       .subscribe(participants => this.participants = participants);
-      this.authService.getAuth().forEach(authUser => {
-        this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
-  });
+    this.authService.getAuth().forEach(authUser => {
+      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
+    });
   }
 
   ngOnDestroy() {

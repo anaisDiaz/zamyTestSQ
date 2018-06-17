@@ -18,7 +18,7 @@ export class EventRegistrationComponent implements OnInit {
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
-    this.event = new Event('Evento1', 'Lima,Chorrillos', new Date('February 4, 2016 14:00:00')
+    this.event = new Event('Evento1', 'description', 'Lima,Chorrillos', new Date('February 4, 2016 14:00:00')
       , 30.69, new Date('February 4, 2016 23:59:00'), 'urlurl');
   }
 
