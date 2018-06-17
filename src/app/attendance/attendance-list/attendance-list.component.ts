@@ -6,6 +6,8 @@ import { AttendanceService } from '../../services/attendance.service';
 import { Participant } from '../../models/participant.model';
 import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { AppSettings } from '../../app.settings';
 
 @Component({
   selector: 'app-attendance-list',
@@ -19,11 +21,12 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   routeSubscriber: any;
   participantsSubscriber: any;
   eventSubscriber: any;
+  isAdmin: boolean;
   users: User[];
   user: User;
 
   constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute,
-    private eventService: EventService, private userService: UserService) { }
+    private eventService: EventService, private authService: AuthService, private userService: UserService) { }
 
   ngOnInit() {
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.eventId = params['id']);
@@ -36,6 +39,9 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
           this.users.push(this.user);
         }
         );
+      });
+      this.authService.getAuth().forEach(authUser => {
+        this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
       });
   }
 
