@@ -8,6 +8,7 @@ import { EventService } from '../../services/event.service';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { AppSettings } from '../../app.settings';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-attendance-list',
@@ -22,8 +23,8 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   participantsSubscriber: any;
   eventSubscriber: any;
   isAdmin: boolean;
+  usernames: string[] = [];
   users: User[];
-  user: User;
 
   constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute,
     private eventService: EventService, private authService: AuthService, private userService: UserService) { }
@@ -31,18 +32,23 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.eventId = params['id']);
     this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event => this.event = event);
+    this.authService.getAuth().forEach(authUser => {
+      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
+    });
     this.participantsSubscriber = this.attendanceService.getParticipants(this.eventId)
       .subscribe(participants => {
         this.participants = participants;
-        this.participants.forEach(participant => {
-          this.userService.getUserByUsername(participant.id).subscribe(user => this.user = user);
-          this.users.push(this.user);
-        }
-        );
+        participants.forEach(p => {
+          this.usernames.push(p.id);
+        });
+        this.getUsers();
       });
-      this.authService.getAuth().forEach(authUser => {
-        this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
-      });
+  }
+
+  getUsers() {
+    this.userService.getUsersByUsernames(this.usernames).subscribe(users => {
+      this.users = users.filter(user => user !== undefined);
+    });
   }
 
   ngOnDestroy() {
