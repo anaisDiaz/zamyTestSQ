@@ -25,12 +25,11 @@
             </thead>
             <tbody>
                 <tr *ngFor="let participant of participants">
-               
                     <td>{{participant.id}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{getUser(participant.id).firstname}}</td>
+                    <td>{{getUser(participant.id).lastname}}</td>
                     <td>{{participant.inscriptionDate | date : 'medium'}}</td>  
-                    <td></td>              
+                    <td>{{getUser(participant.id).position}}</td>              
                 </tr>
             </tbody>
         </table>

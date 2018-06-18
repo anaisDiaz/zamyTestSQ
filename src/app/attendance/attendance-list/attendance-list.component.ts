@@ -52,6 +52,10 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
     });
   }
 
+  getUser(username: string): User{
+    return this.users.find(user => user.username === username);
+  }
+
   ngOnDestroy() {
     this.routeSubscriber.unsubscribe();
     this.eventSubscriber.unsubscribe();
