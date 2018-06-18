@@ -29,4 +29,8 @@ export class UserService {
   save(userId: string, user: User) {
     this.firebaseDatabaseService.addDocument(CollectionName.users, user, userId);
   }
+  getUsersByUsernames(usernames: string[]): Observable<User[]> {
+    return this.firebaseDatabaseService.getCollectionWhere(CollectionName.users, usernames);
+  }
+
 }

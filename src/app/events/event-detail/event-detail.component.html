@@ -1,10 +1,13 @@
+<app-navigation-bar [isAdmin] = "isAdmin"></app-navigation-bar>
 <div *ngIf="event">
   <p>Nombre: {{event.name | uppercase}}</p>
   <p>Lugar: {{event.location}}</p>
   <p>Fecha: {{event.date}}</p>
   <p>Fecha limite de inscripcion: {{event.lastRegisterDate}}</p>
 
-<button type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
+<button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
+
+<button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
 
 </div>
 <!--MODAL-->

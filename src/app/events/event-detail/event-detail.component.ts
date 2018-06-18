@@ -18,6 +18,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
   participantId: string;
   routeSubscriber: any;
   eventSubscriber: any;
+  isAdmin: boolean;
 
   constructor(private eventService: EventService, private activatedRoute: ActivatedRoute,
     private attendanceService: AttendanceService, private authService: AuthService) { }
@@ -28,6 +29,9 @@ export class EventDetailComponent implements OnInit, OnDestroy {
     this.authService.getAuth().forEach(authUser => {
       this.participantId = authUser.email.replace(AppSettings.emailDomain, '');
       console.log('verifico email? : ' + authUser.emailVerified);
+    });
+    this.authService.getAuth().forEach(authUser => {
+      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
     });
   }
 

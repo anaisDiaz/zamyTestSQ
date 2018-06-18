@@ -22,6 +22,7 @@ import { AttendanceService } from './services/attendance.service';
 import { PendingUsersListComponent } from './users/pending-users-list/pending-users-list.component';
 import { PendingUserDetailComponent } from './users/pending-user-detail/pending-user-detail.component';
 import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
+import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -42,7 +43,8 @@ const firebaseConfig = {
     LoginComponent,
     PendingUsersListComponent,
     PendingUserDetailComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    NavigationBarComponent
   ],
   imports: [
     FormsModule,

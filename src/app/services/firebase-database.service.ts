@@ -45,8 +45,22 @@ export class FirebaseDatabaseService {
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
         const id = a.payload.doc.id;
-        console.log('found id: ' + id);
+        console.log('found: ' + JSON.stringify(data));
         return { id, ...data };
+      }))
+    );
+  }
+
+  getCollectionWhere(collectionName: string, values: string[]): Observable<any> {
+    return this.angularFirestore.collection(collectionName).snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as any;
+        const id = a.payload.doc.id;
+        console.log('index= ' + values.indexOf(data.username));
+        if (values.indexOf(data.username) >= 0) {
+          console.log('id: ' + id + 'found: ' + JSON.stringify(data));
+          return { id, ...data };
+        }
       }))
     );
   }

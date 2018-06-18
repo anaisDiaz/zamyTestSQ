@@ -11,7 +11,8 @@ import { PendingUserDetailComponent } from './users/pending-user-detail/pending-
 import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
 
 const routes: Routes = [
-  { path: 'event-registration', component: EventRegistrationComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'event/registration', component: EventRegistrationComponent },
   { path: 'event/all', component: EventListComponent },
   { path: 'event/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },
