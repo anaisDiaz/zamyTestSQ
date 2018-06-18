@@ -8,7 +8,8 @@ import { LoginComponent } from './login/login.component';
 import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
 
 const routes: Routes = [
-  { path: 'event-registration', component: EventRegistrationComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full'},
+  { path: 'event/registration', component: EventRegistrationComponent },
   { path: 'event/all', component: EventListComponent },
   { path: 'event/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },

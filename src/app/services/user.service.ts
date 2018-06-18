@@ -18,4 +18,8 @@ export class UserService {
     return this.firebaseDatabaseService.getDocumentWhere(CollectionName.users, 'username', '==', username);
   }
 
+  getUsersByUsernames(usernames: string[]): Observable<User[]> {
+    return this.firebaseDatabaseService.getCollectionWhere(CollectionName.users, usernames);
+  }
+
 }
