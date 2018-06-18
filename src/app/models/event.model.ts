@@ -29,7 +29,7 @@ export class Event {
     toJSON(): JSON {
         return JSON.parse(
             '{"name": "' + this.name +
-            '" , "description": "' + this.location +
+            '" , "description": "' + this.description +
             '" , "location": "' + this.location +
             '" , "date": "' + this.date.toISOString +
             '" , "price": "' + this.price +
@@ -38,5 +38,4 @@ export class Event {
             '" }'
         );
     }
-    
 }
