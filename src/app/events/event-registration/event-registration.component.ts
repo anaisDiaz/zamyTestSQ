@@ -16,11 +16,14 @@ export class EventRegistrationComponent implements OnInit {
   event: Event;
   uploadEvent: any;
   eventForm: NgForm;
+  // tslint:disable-next-line:no-inferrable-types
+  imageUrl: string = '../assets/upload image.png';
+  fileToUpload: File = null;
 
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
-    this.event= new Event('','','',new Date(),0,new Date(),'');
+    this.event = new Event('', '', '', new Date(), 0, new Date(), '');
   }
 
   uploadImage(uploadEvent) {
@@ -31,6 +34,14 @@ export class EventRegistrationComponent implements OnInit {
 
   setUploadEvent(event) {
     this.uploadEvent = event;
+    console.log(this.uploadEvent);
+    this.fileToUpload = this.uploadEvent.target.files[0];
+    // tslint:disable-next-line:prefer-const
+    let reader = new FileReader();
+    reader.onload = (_event: any) => {
+        this.imageUrl = _event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
   }
 
   onSubmit() {
@@ -41,21 +52,15 @@ export class EventRegistrationComponent implements OnInit {
       this.uploadImage(this.uploadEvent);
       this.resetForm();
     });
-    
   }
 
   resetForm() {
-    if (this.eventForm != null)
-   this.eventForm.reset();
+    if (this.eventForm != null) {
+       this.eventForm.reset();
+    }
   }
 
-  collectEventData(){
-    this.event.name = this.eventForm.value.name;
-    this.event.location = this.eventForm.value.location;
-    this.event.date = this.eventForm.value.date
-    this.event.imageURL = this.eventForm.value.imageURL;
-    this.event.lastRegisterDate = this.eventForm.value.lastRegisterDate;
+  handleFileInput(File: FileList) {
   }
-
 
 }

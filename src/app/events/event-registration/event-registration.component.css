@@ -26,3 +26,8 @@
     font-size: 22px;
     font-weight: bold;
 }
+
+.centrado{
+	margin:10px auto;
+	display:block;
+}
