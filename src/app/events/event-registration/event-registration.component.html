@@ -1,3 +1,4 @@
+<app-navigation-bar [isAdmin] = true></app-navigation-bar>
 <div class="container">
   <header id="#FONDO">
     <div class="space">
@@ -8,7 +9,7 @@
               <br>
               <h3 class="text-center">Registro de evento</h3>
               <div class="card-body">
-                <form #eventForm="ngForm" (ngsubmit)="onSubmit(eventForm)">
+                <form #eventForm="ngForm">
                   <!-- NOMBRE -->
                   <div class="form-group">
                       <label class="col-form-label" for="name">Nombre</label>
@@ -25,13 +26,13 @@
                       <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)] ="event.location" required>
                   </div>
                   <!-- FECHA y HORA (INICIO DE EVENTO)-->
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                     <label class="col-form-label" for="date">Inicio de evento</label>
                     <div class="input-group">
                       <input type="datetime-local" class="form-control"  name="date" #date="ngModel" [(ngModel)] ="event.date" required>
                       <span class="validity"></span>
                     </div>
-                  </div>
+                  </div> -->
                   
                   <!-- COSTO -->
                   <div class="form-group">
@@ -51,21 +52,21 @@
                   <!-- IMAGEN -->
                   <div class = "form-group">
                       <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
-                      <input type = "file"  (change)="setUploadEvent($event)"  accept =".png,.jpg"  name="imageURL" #imageURL="ngModel" [(ngModel)] ="event.imageURL" required>
+                      <input type = "file"  (change)="setUploadEvent($event)"  accept =".png,.jpg"  name="imageURL">
                       <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
                       <img [src]="imageUrl"  class="center-block col-md-10">
                       <br>
                       
                   </div>
                   <!-- FIN INSCRIPCION -->
-                  <div class="form-group">
+                  <!-- <div class="form-group">
                       <label class="col-form-label" for="lastRegisterDate">Limite de inscripcion</label>
                       <div class="input-group">
                         <label class="col-form-label" for="lastRegisterDate"></label>
                         <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="event.lastRegisterDate" required>
                         <span class="validity"></span>
                       </div>
-                  </div>
+                  </div> -->
                   <!-- BOTON REGISTRAR-->
                   <button  class = "btn btn-success" (click) = "onSubmit()">
                       <font style = "vertical-align: inherit;"> 
@@ -93,6 +94,3 @@
     </div>
   </header>
 </div>
-
-<input type="file" accept=".png,.jpg">
-<button (click)="saveEvent()">Registrar</button>
