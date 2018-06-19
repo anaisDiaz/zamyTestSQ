@@ -1,12 +1,11 @@
 <app-navigation-bar [isAdmin] = "isAdmin"></app-navigation-bar>
-
 <div class="container">
     <h1>Lista de participantes</h1>
     
     <div *ngIf="participants.length>0">
         <div class="text-center">
             <div class="btn-group" role="group" aria-label="Basic example">
-                <button type="button" class="btn btn-outline-info" (click)="sortTable(0)">Ordenar por nombre</button>
+                <button type="button" class="btn btn-outline-info" (click)="sortTable(2)">Ordenar por nombre</button>
                 <button type="button" class="btn btn-outline-info" (click)="sortTable(3)"> Ordenar por fecha</button>
             </div>
         </div>
@@ -25,12 +24,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let participant of participants">
-               
+                    
                     <td>{{participant.id}}</td>
-                    <td></td>
-                    <td></td>
+                    <td>{{getUser(participant.id).firstname}}</td>
+                    <td>{{getUser(participant.id).lastname}}</td>
                     <td>{{participant.inscriptionDate | date : 'medium'}}</td>  
-                    <td></td>              
+                    <td>{{getUser(participant.id).position}}</td>  
                 </tr>
             </tbody>
         </table>
@@ -39,4 +38,3 @@
         <h2 class="lead">No hay participantes inscritos</h2>
     </div>
 </div>
-
