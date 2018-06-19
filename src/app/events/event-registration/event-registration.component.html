@@ -29,7 +29,7 @@
                   <div class="form-group">
                     <label class="col-form-label" for="date">Inicio de evento</label>
                     <div class="input-group">
-                      <input type="datetime-local" class="form-control"  name="date" #date="ngModel" [(ngModel)] ="event.date" required>
+                      <input type="datetime-local" class="form-control"  name="date" #date="ngModel" [(ngModel)] ="date1" required>
                       <span class="validity"></span>
                     </div>
                   </div>
@@ -63,7 +63,7 @@
                       <label class="col-form-label" for="lastRegisterDate">Limite de inscripcion</label>
                       <div class="input-group">
                         <label class="col-form-label" for="lastRegisterDate"></label>
-                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="event.lastRegisterDate" required>
+                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="date2" required>
                         <span class="validity"></span>
                       </div>
                   </div>

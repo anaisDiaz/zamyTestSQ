@@ -18,6 +18,8 @@ export class EventRegistrationComponent implements OnInit {
   eventForm: NgForm;
   imageUrl = '../assets/upload image.png';
   fileToUpload: File = null;
+  date1: any;
+  date2: any;
 
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
@@ -44,7 +46,6 @@ export class EventRegistrationComponent implements OnInit {
   onSubmit() {
     this.formatDate();
     console.log(this.event.date.getDate());
-    const date1 = this.event.date;
     console.log('event == ' + JSON.stringify(this.event));
     console.log('guardando');
     this.eventService.save(this.event).then(event => {
@@ -72,9 +73,7 @@ export class EventRegistrationComponent implements OnInit {
     }
   }
   formatDate() {
-    const date1 = this.event.date;
-    this.event.date = new Date(date1);
-    const date2 = this.event.lastRegisterDate;
-    this.event.date = new Date(date2);
+    // this.event.date = new Date(this.date1);
+    // this.event.date = new Date(this.date2);
   }
 }
