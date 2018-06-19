@@ -42,15 +42,11 @@ export class EventRegistrationComponent implements OnInit {
 
 
   onSubmit() {
-<<<<<<< HEAD
     this.formatDate();
-    console.log('guardando');
     console.log(this.event.date.getDate());
-    const date1 = new Date(this.event.date);
-=======
+    const date1 = this.event.date;
     console.log('event == ' + JSON.stringify(this.event));
     console.log('guardando');
->>>>>>> 449415c2f308884439b2076aac536cf5f1d28c82
     this.eventService.save(this.event).then(event => {
       this.event.id = event.id;
       console.log('id = ' + event.id);
@@ -75,14 +71,10 @@ export class EventRegistrationComponent implements OnInit {
       this.eventForm.reset();
     }
   }
-<<<<<<< HEAD
   formatDate() {
     const date1 = this.event.date;
     this.event.date = new Date(date1);
     const date2 = this.event.lastRegisterDate;
     this.event.date = new Date(date2);
   }
-=======
-
->>>>>>> 449415c2f308884439b2076aac536cf5f1d28c82
 }

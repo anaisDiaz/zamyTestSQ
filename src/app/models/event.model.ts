@@ -32,8 +32,8 @@ export class Event {
             '" , "description": "' + this.description +
             '" , "location": "' + this.location +
             '" , "date": "' + this.date.toISOString +
-            '" , "price": "' + this.price +
-            '" , "lastRegisterDate": "' + this.lastRegisterDate +
+            '" , "price": ' + this.price +
+            ' , "lastRegisterDate": "' + this.lastRegisterDate +
             '" , "imageURL": "' + this.imageURL +
             '" }'
         );
