@@ -16,8 +16,7 @@ export class EventRegistrationComponent implements OnInit {
   event: Event;
   uploadEvent: any;
   eventForm: NgForm;
-  // tslint:disable-next-line:no-inferrable-types
-  imageUrl: string = '../assets/upload image.png';
+  imageUrl = '../assets/upload image.png';
   fileToUpload: File = null;
 
   constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
@@ -28,39 +27,46 @@ export class EventRegistrationComponent implements OnInit {
 
   uploadImage(uploadEvent) {
     this.firebaseStorageService.uploadFile(FolderName.events + '/' + this.event.id, FileName.eventImage
-      + AppSettings.imageFileExtension, uploadEvent);
-      // .subscribe(url => this.event.imageURL = url);
+      + AppSettings.imageFileExtension, uploadEvent).then(() => this.saveImageURL());
+  }
+
+  saveImageURL() {
+    this.firebaseStorageService.getFileURL(FolderName.events + '/' + this.event.id, FileName.eventImage
+      + AppSettings.imageFileExtension).subscribe(url => {
+        console.log('url : ' + url);
+        this.event.imageURL = url;
+        console.log('event == ' + JSON.stringify(this.event));
+        this.eventService.update(this.event.id, this.event);
+      });
+  }
+
+
+  onSubmit() {
+    console.log('event == ' + JSON.stringify(this.event));
+    console.log('guardando');
+    this.eventService.save(this.event).then(event => {
+      this.event.id = event.id;
+      console.log('id = ' + event.id);
+      this.uploadImage(this.uploadEvent);
+      this.resetForm();
+    });
   }
 
   setUploadEvent(event) {
     this.uploadEvent = event;
     console.log(this.uploadEvent);
     this.fileToUpload = this.uploadEvent.target.files[0];
-    // tslint:disable-next-line:prefer-const
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = (_event: any) => {
-        this.imageUrl = _event.target.result;
+      this.imageUrl = _event.target.result;
     };
     reader.readAsDataURL(this.fileToUpload);
   }
 
-  onSubmit() {
-    console.log('guardando');
-    console.log(this.event.date.getDay);
-    this.eventService.save(this.event).then(event => {
-      this.event.id = event.id;
-      this.uploadImage(this.uploadEvent);
-      this.resetForm();
-    });
-  }
-
   resetForm() {
     if (this.eventForm != null) {
-       this.eventForm.reset();
+      this.eventForm.reset();
     }
-  }
-
-  handleFileInput(File: FileList) {
   }
 
 }
