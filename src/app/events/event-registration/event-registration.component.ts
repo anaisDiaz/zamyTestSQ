@@ -45,8 +45,10 @@ export class EventRegistrationComponent implements OnInit {
   }
 
   onSubmit() {
+    this.formatDate();
     console.log('guardando');
-    console.log(this.event.date.getDay);
+    console.log(this.event.date.getDate());
+    const date1 = new Date(this.event.date);
     this.eventService.save(this.event).then(event => {
       this.event.id = event.id;
       this.uploadImage(this.uploadEvent);
@@ -59,8 +61,10 @@ export class EventRegistrationComponent implements OnInit {
        this.eventForm.reset();
     }
   }
-
-  handleFileInput(File: FileList) {
+  formatDate() {
+    const date1 = this.event.date;
+    this.event.date = new Date(date1);
+    const date2 = this.event.lastRegisterDate;
+    this.event.date = new Date(date2);
   }
-
 }

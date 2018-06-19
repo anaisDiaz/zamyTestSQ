@@ -53,7 +53,7 @@
                       <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
                       <input type = "file"  (change)="setUploadEvent($event)"  accept =".png,.jpg"  name="imageURL" #imageURL="ngModel" [(ngModel)] ="event.imageURL" required>
                       <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
-                      <img [src]="imageUrl"  class="center-block col-md-12">
+                      <img [src]="imageUrl"  class="center-block col-md-10">
                       <br>
                       
                   </div>
