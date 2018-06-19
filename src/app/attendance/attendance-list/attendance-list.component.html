@@ -1,4 +1,39 @@
 <app-navigation-bar [isAdmin] = "isAdmin"></app-navigation-bar>
-<li *ngFor="let participant of participants">{{participant.id}} - {{participant.inscriptionDate}}</li>
-<h1>Users</h1>
-<li *ngFor="let user of users">{{user.id}} - {{user.firstname}}</li>
+<div class="container">
+    <h1>Lista de participantes</h1>
+    
+    <div *ngIf="participants.length>0">
+        <div class="text-center">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-info" (click)="sortTable(2)">Ordenar por nombre</button>
+                <button type="button" class="btn btn-outline-info" (click)="sortTable(3)"> Ordenar por fecha</button>
+            </div>
+        </div>
+        
+        <h3 class="lead">Hay <span class="center">{{participants.length}}</span> participantes</h3>
+        
+        <table id="tableList" class="table table-hover">
+            <thead>
+                <tr class="table-info">
+                    <th>Username</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Fecha de inscripción</th>
+                    <th>Cargo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let participant of participants">                  
+                    <td>{{participant.id}}</td>
+                    <td>{{getUser(participant.id).firstname}}</td>
+                    <td>{{getUser(participant.id).lastname}}</td>
+                    <td>{{participant.inscriptionDate | date : 'medium'}}</td>  
+                    <td>{{getUser(participant.id).position}}</td>  
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div  *ngIf="participants.length==0" class="text-center">
+        <h2 class="lead">No hay participantes inscritos</h2>
+    </div>
+</div>
