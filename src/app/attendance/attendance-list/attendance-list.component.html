@@ -24,12 +24,19 @@
             </thead>
             <tbody>
                 <tr *ngFor="let participant of participants">
+<<<<<<< HEAD
                     
+=======
+>>>>>>> d6af7c9e2c18d2fb30f1d4c18933a09a390c79a2
                     <td>{{participant.id}}</td>
                     <td>{{getUser(participant.id).firstname}}</td>
                     <td>{{getUser(participant.id).lastname}}</td>
                     <td>{{participant.inscriptionDate | date : 'medium'}}</td>  
+<<<<<<< HEAD
                     <td>{{getUser(participant.id).position}}</td>  
+=======
+                    <td>{{getUser(participant.id).position}}</td>              
+>>>>>>> d6af7c9e2c18d2fb30f1d4c18933a09a390c79a2
                 </tr>
             </tbody>
         </table>
