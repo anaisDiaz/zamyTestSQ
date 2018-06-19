@@ -29,12 +29,12 @@ export class Event {
     toJSON(): JSON {
         return JSON.parse(
             '{"name": "' + this.name +
-            '" , "description": "' + this.location +
+            '" , "description": "' + this.description +
             '" , "location": "' + this.location +
-            '" , "date": "' + this.date +
-            '" , "price": "' + this.price +
-            '" , "lastRegisterDate": "' + this.lastRegisterDate +
-            '" , "urlImage": "' + this.imageURL +
+            '" , "date": "' + this.date.toISOString +
+            '" , "price": ' + this.price +
+            ' , "lastRegisterDate": "' + this.lastRegisterDate +
+            '" , "imageURL": "' + this.imageURL +
             '" }'
         );
     }
