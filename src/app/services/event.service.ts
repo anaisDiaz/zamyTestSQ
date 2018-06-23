@@ -10,7 +10,8 @@ export class EventService {
   constructor(private firebaseDatabaseService: FirebaseDatabaseService) { }
 
   getAll(): Observable<Event[]> {
-    return this.firebaseDatabaseService.getCollection(CollectionName.events);
+    // return this.firebaseDatabaseService.getCollection(CollectionName.events);
+    return this.firebaseDatabaseService.getCollectionWhere(CollectionName.events, 'date', '>=', new Date());
   }
 
   save(event: Event): Promise<any> {
