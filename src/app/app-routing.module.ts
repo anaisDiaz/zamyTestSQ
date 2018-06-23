@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { EventRegistrationComponent } from './events/event-registration/event-registration.component';
-import { EventListComponent } from './events/event-list/event-list.component';
-import { EventDetailComponent } from './events/event-detail/event-detail.component';
-import { LoginComponent } from './login/login.component';
-import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
+import { EventRegistrationComponent } from './components/events/event-registration/event-registration.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
+import { LoginComponent } from './components/login/login.component';
+import { AttendanceListComponent } from './components/attendance/attendance-list/attendance-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},

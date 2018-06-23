@@ -2,24 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { EventRegistrationComponent } from './events/event-registration/event-registration.component';
-import { EventListComponent } from './events/event-list/event-list.component';
-import { EventDetailComponent } from './events/event-detail/event-detail.component';
+import { EventRegistrationComponent } from './components/events/event-registration/event-registration.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { FormsModule } from '@angular/forms';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { FirebaseDatabaseService } from './services/firebase-database.service';
+import { FirebaseDatabaseService } from './services/firebase-services/firebase-database.service';
 import { UserService } from './services/user.service';
 import { EventService } from './services/event.service';
-import { AttendanceListComponent } from './attendance/attendance-list/attendance-list.component';
-import { AuthService } from './services/auth.service';
-import { LoginComponent } from './login/login.component';
+import { AttendanceListComponent } from './components/attendance/attendance-list/attendance-list.component';
+import { AuthService } from './services/firebase-services/auth.service';
+import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { AttendanceService } from './services/attendance.service';
-import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
+import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
