@@ -1,5 +1,3 @@
-import { Time } from '@angular/common';
-
 export class Event {
     id: string;
     name: string;
@@ -31,7 +29,7 @@ export class Event {
             '{"name": "' + this.name +
             '" , "description": "' + this.description +
             '" , "location": "' + this.location +
-            '" , "date": "' + this.date.toISOString +
+            '" , "date": "' + this.date +
             '" , "price": ' + this.price +
             ' , "lastRegisterDate": "' + this.lastRegisterDate +
             '" , "imageURL": "' + this.imageURL +
