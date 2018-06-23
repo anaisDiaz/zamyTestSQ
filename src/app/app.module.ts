@@ -19,9 +19,9 @@ import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { AttendanceService } from './services/attendance.service';
-import { PendingUsersListComponent } from './users/pending-users-list/pending-users-list.component';
-import { PendingUserDetailComponent } from './users/pending-user-detail/pending-user-detail.component';
-import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
+import { PendingUsersListComponent } from './components/users/pending-users-list/pending-users-list.component';
+import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
+import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 
 const firebaseConfig = {
