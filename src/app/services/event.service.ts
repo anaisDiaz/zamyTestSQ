@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDatabaseService } from './firebase-database.service';
+import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
 import { Observable } from 'rxjs';
 import { CollectionName } from '../enums/collection-name';
 import { Event } from '../models/event.model';
@@ -10,7 +10,8 @@ export class EventService {
   constructor(private firebaseDatabaseService: FirebaseDatabaseService) { }
 
   getAll(): Observable<Event[]> {
-    return this.firebaseDatabaseService.getCollection(CollectionName.events);
+    // return this.firebaseDatabaseService.getCollection(CollectionName.events);
+    return this.firebaseDatabaseService.getCollectionWhere(CollectionName.events, 'date', '>=', new Date());
   }
 
   save(event: Event): Promise<any> {
