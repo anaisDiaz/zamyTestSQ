@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
-import { FirebaseDatabaseService } from './firebase-database.service';
+import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
 import { CollectionName } from '../enums/collection-name';
 
 @Injectable()

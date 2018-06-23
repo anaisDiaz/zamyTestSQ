@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Event } from '../../models/event.model';
+import { Event } from '../../../models/event.model';
 import { ActivatedRoute } from '@angular/router';
-import { User } from '../../models/user.model';
-import { AttendanceService } from '../../services/attendance.service';
-import { Participant } from '../../models/participant.model';
-import { EventService } from '../../services/event.service';
-import { UserService } from '../../services/user.service';
-import { AuthService } from '../../services/auth.service';
-import { AppSettings } from '../../app.settings';
+import { User } from '../../../models/user.model';
+import { AttendanceService } from '../../../services/attendance.service';
+import { Participant } from '../../../models/participant.model';
+import { EventService } from '../../../services/event.service';
+import { UserService } from '../../../services/user.service';
+import { AuthService } from '../../../services/firebase-services/auth.service';
+import { AppSettings } from '../../../app.settings';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -52,7 +52,7 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
     });
   }
 
-  getUser(username: string): User{
+  getUser(username: string): User {
     return this.users.find(user => user.username === username);
   }
 
@@ -63,26 +63,26 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
   }
 
   sortTable(n) {
-    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-    table = document.getElementById("tableList");
+    let table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById('tableList');
     switching = true;
-    dir = "asc";
+    dir = 'asc';
     while (switching) {
       switching = false;
-      rows = table.getElementsByTagName("TR");
-      
+      rows = table.getElementsByTagName('TR');
+
       for (i = 1; i < (rows.length - 1); i++) {
         shouldSwitch = false;
-        x = rows[i].getElementsByTagName("TD")[n];
-        y = rows[i + 1].getElementsByTagName("TD")[n];
+        x = rows[i].getElementsByTagName('TD')[n];
+        y = rows[i + 1].getElementsByTagName('TD')[n];
 
-        if (dir == "asc") {
+        if (dir === 'asc') {
           if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
 
             shouldSwitch = true;
             break;
           }
-        } else if (dir == "desc") {
+        } else if (dir === 'desc') {
           if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
             shouldSwitch = true;
             break;
@@ -92,10 +92,10 @@ export class AttendanceListComponent implements OnInit, OnDestroy {
       if (shouldSwitch) {
         rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
         switching = true;
-        switchcount ++;
+        switchcount++;
       } else {
-               if (switchcount == 0 && dir == "asc") {
-          dir = "desc";
+        if (switchcount === 0 && dir === 'asc') {
+          dir = 'desc';
           switching = true;
         }
       }
