@@ -5,9 +5,9 @@ import { EventListComponent } from './components/events/event-list/event-list.co
 import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { AttendanceListComponent } from './components/attendance/attendance-list/attendance-list.component';
-import { PendingUsersListComponent } from './users/pending-users-list/pending-users-list.component';
-import { PendingUserDetailComponent } from './users/pending-user-detail/pending-user-detail.component';
-import { UserRegistrationComponent } from './users/user-registration/user-registration.component';
+import { PendingUsersListComponent } from './components/users/pending-users-list/pending-users-list.component';
+import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
+import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
