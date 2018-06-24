@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.model';
-import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
-import { CollectionName } from '../enums/collection-name';
+import { User } from '../../models/user.model';
+import { FirebaseDatabaseService } from '../firebase-services/firebase-database.service';
+import { CollectionName } from '../../enums/collection-name';
 
 @Injectable()
 export class UserService {
@@ -19,7 +19,7 @@ export class UserService {
   }
 
   getUsersByUsernames(usernames: string[]): Observable<User[]> {
-    return this.firebaseDatabaseService.getCollectionWithSpecificValues(CollectionName.users, usernames);
+    return this.firebaseDatabaseService.getCollectionWithSpecificUsernames(CollectionName.users, usernames);
   }
 
 }

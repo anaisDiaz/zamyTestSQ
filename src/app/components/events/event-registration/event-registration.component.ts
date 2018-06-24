@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../../services/event.service';
+import { EventService } from '../../../services/event-service/event.service';
 import { Event } from '../../../models/event.model';
 import { FirebaseStorageService } from '../../../services/firebase-services/firebase-storage.service';
 import { FileName } from '../../../enums/file-name';

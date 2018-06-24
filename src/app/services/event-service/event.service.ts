@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
+import { FirebaseDatabaseService } from '../firebase-services/firebase-database.service';
 import { Observable } from 'rxjs';
-import { CollectionName } from '../enums/collection-name';
-import { Event } from '../models/event.model';
+import { CollectionName } from '../../enums/collection-name';
+import { Event } from '../../models/event.model';
 
 @Injectable()
 export class EventService {
@@ -25,4 +25,5 @@ export class EventService {
   getEventById(id: string): Observable<Event> {
     return this.firebaseDatabaseService.getDocumentById(CollectionName.events, id);
   }
+
 }
