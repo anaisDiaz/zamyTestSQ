@@ -17,4 +17,9 @@ export class AttendanceService {
     this.firebaseDatabaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants,
       participant, participant.id);
   }
+
+  getAttendanceById(eventId: string, participantId: string): Observable<Participant> {
+    return this.firebaseDatabaseService.getDocumentById(CollectionName.events +
+      '/' + eventId + '/' + CollectionName.participants, participantId);
+  }
 }
