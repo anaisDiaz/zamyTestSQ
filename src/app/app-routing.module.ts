@@ -5,6 +5,7 @@ import { EventListComponent } from './components/events/event-list/event-list.co
 import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
 import { LoginComponent } from './components/login/login.component';
 import { AttendanceListComponent } from './components/attendance/attendance-list/attendance-list.component';
+import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -12,7 +13,8 @@ const routes: Routes = [
   { path: 'event/all', component: EventListComponent },
   { path: 'event/:id', component: EventDetailComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'event/:id/participants', component: AttendanceListComponent}
+  { path: 'event/:id/participants', component: AttendanceListComponent},
+  { path: 'my-events', component: MyEventListComponent}
 ];
 
 @NgModule({
