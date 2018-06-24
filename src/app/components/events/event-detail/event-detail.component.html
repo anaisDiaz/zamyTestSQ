@@ -1,14 +1,32 @@
-<app-navigation-bar [isAdmin] = "isAdmin"></app-navigation-bar>
+<app-navigation-bar [isAdmin]="isAdmin">
+</app-navigation-bar>
 <div *ngIf="event">
-  <p>Nombre: {{event.name | uppercase}}</p>
-  <p>Lugar: {{event.location}}</p>
-  <p>Fecha: {{event.date}}</p>
-  <p>Fecha limite de inscripcion: {{event.lastRegisterDate}}</p>
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
+      <h1 style="color:rgb(0, 128, 49);" align="center"> {{event.name}}</h1>
+      <div class="image" align="center">
+        <img src="{{event.imageURL}}" alt="Avatar" style="width:40%">
+      </div>
+      <div class="container2">
+        <p>{{event.description}} </p>
+      </div>
+    </div>
+  </div>
 
-<button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
-
-<button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
-
+  <div class="container">
+    <div class="card">
+      <div class="fourth-item">
+          <!-- <h6> Fecha: </h6> <p>{{event.date | date : " MMMM d, EEEE , y"}}</p>
+          <h6> Hora: </h6> <p>{{event.date.toDate() | date : 'h:mma'}}</p> -->
+          <!-- <h6> Fecha Limite de inscripcion: </h6> <p>{{event.lastRegisterDate}}</p> -->
+          <h6> Precio: </h6> <p>{{event.price}}</p>
+          <h6> Lugar: </h6> <p>{{event.location}}</p>
+        <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
+        <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
+      </div>
+    </div>
+  </div>
 </div>
 <!--MODAL-->
 <div class="modal" id="participantSavedSuccessfully">
@@ -29,4 +47,3 @@
     </div>
   </div>
 </div>
-
