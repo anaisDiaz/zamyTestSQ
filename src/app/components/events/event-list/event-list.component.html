@@ -2,11 +2,11 @@
 <h1 style="color:teal;" align="center"> Eventos</h1>
 <div class="container1">
   <div class="card" *ngFor="let event of events">
-      <img src="{{event.urlImage}}" alt="Avatar" style="width:100%">
+      <img src="{{event.imageURL}}" alt="Avatar" style="width:100%">
       <div class= "container2">
         <h4 style="color: royalblue">{{event.name}}</h4>
-        <p><strong> Hora: </strong> :{{event.date | date : 'h:mma'}} </p> 
-        <p><strong> Fecha: </strong> :{{event.date | date : " MMMM d, EEEE , y"}} </p> 
+        <p><strong> Hora: </strong> :{{event.date.toDate() |  date : 'h:mma'}} </p> 
+        <p><strong> Fecha: </strong> :{{event.date.toDate() | date : " MMMM d, EEEE , y"}} </p> 
         <button  type="button" class="btn btn-primary btn-sm" (click)="goToEventDetails(event.id)" >Seguir Leyendo</button>
       </div>
     </div>

@@ -40,7 +40,7 @@ export class FirebaseDatabaseService {
     return this.angularFirestore.doc(collectionName + '/' + id).valueChanges();
   }
 
-  getDocumentWhere(collectionName: string, field: string, operator: any, value: any): Observable<any> {
+  getCollectionWhere(collectionName: string, field: string, operator: any, value: any): Observable<any> {
     return this.angularFirestore.collection(collectionName, ref => ref.where(field, operator, value)).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
@@ -51,7 +51,7 @@ export class FirebaseDatabaseService {
     );
   }
 
-  getCollectionWhere(collectionName: string, values: string[]): Observable<any> {
+  getCollectionWithSpecificValues(collectionName: string, values: string[]): Observable<any> {
     return this.angularFirestore.collection(collectionName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;
