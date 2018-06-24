@@ -1,38 +1,31 @@
 <app-navigation-bar [isAdmin]="isAdmin">
 </app-navigation-bar>
 <div *ngIf="event">
-  <div class="second-container">
+  <div class="container">
     <div class="card">
+      <div class="card-body">
       <h1 style="color:rgb(0, 128, 49);" align="center"> {{event.name}}</h1>
-      <div class="image">
-          <img src="{{event.imageURL}}" alt="Avatar" style="width:75%">
-      </div>  
+      <div class="image" align="center">
+        <img src="{{event.imageURL}}" alt="Avatar" style="width:40%">
+      </div>
       <div class="container2">
         <p>{{event.description}} </p>
       </div>
     </div>
   </div>
 
-  <div class="third-container">
+  <div class="container">
     <div class="card">
       <div class="fourth-item">
-        <p>
-          <strong> Fecha: </strong> {{event.date | date : " MMMM d, EEEE , y"}} </p>
-        <p>
-          <strong> Hora: </strong>  {{event.date.toDate() | date : 'h:mma'}} </p>
-        <p>
-          <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate}} </p>
-        <p>
-          <strong> Precio: </strong> {{event.price}} </p>
-          <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
-          <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
+          <!-- <h6> Fecha: </h6> <p>{{event.date | date : " MMMM d, EEEE , y"}}</p>
+          <h6> Hora: </h6> <p>{{event.date.toDate() | date : 'h:mma'}}</p> -->
+          <!-- <h6> Fecha Limite de inscripcion: </h6> <p>{{event.lastRegisterDate}}</p> -->
+          <h6> Precio: </h6> <p>{{event.price}}</p>
+          <h6> Lugar: </h6> <p>{{event.location}}</p>
+        <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
+        <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
       </div>
     </div>
-  </div>
-
-  <div class="map-container">
-      <p>
-        <strong> Lugar:</strong>{{event.location}}</p>
   </div>
 </div>
 <!--MODAL-->
