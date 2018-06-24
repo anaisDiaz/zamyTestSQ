@@ -20,6 +20,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
 import { AttendanceService } from './services/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -38,7 +39,8 @@ const firebaseConfig = {
     EventDetailComponent,
     AttendanceListComponent,
     LoginComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    MyEventListComponent
   ],
   imports: [
     FormsModule,
