@@ -11,18 +11,19 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FirebaseDatabaseService } from './services/firebase-services/firebase-database.service';
-import { UserService } from './services/user.service';
-import { EventService } from './services/event.service';
+import { UserService } from './services/user-service/user.service';
+import { EventService } from './services/event-service/event.service';
 import { AttendanceListComponent } from './components/attendance/attendance-list/attendance-list.component';
 import { AuthService } from './services/firebase-services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
-import { AttendanceService } from './services/attendance.service';
 import { PendingUsersListComponent } from './components/users/pending-users-list/pending-users-list.component';
 import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
 import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
+import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
+import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -44,7 +45,8 @@ const firebaseConfig = {
     PendingUsersListComponent,
     PendingUserDetailComponent,
     UserRegistrationComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    MyEventListComponent
   ],
   imports: [
     FormsModule,

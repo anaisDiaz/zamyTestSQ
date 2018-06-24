@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
+import { FirebaseDatabaseService } from '../firebase-services/firebase-database.service';
 import { Observable } from 'rxjs';
-import { CollectionName } from '../enums/collection-name';
-import { Participant } from '../models/participant.model';
+import { CollectionName } from '../../enums/collection-name';
+import { Participant } from '../../models/participant.model';
 
 @Injectable()
 export class AttendanceService {
@@ -16,5 +16,10 @@ export class AttendanceService {
   saveAttendance(eventId: string, participant: Participant) {
     this.firebaseDatabaseService.addDocument(CollectionName.events + '/' + eventId + '/' + CollectionName.participants,
       participant, participant.id);
+  }
+
+  getAttendanceById(eventId: string, participantId: string): Observable<Participant> {
+    return this.firebaseDatabaseService.getDocumentById(CollectionName.events +
+      '/' + eventId + '/' + CollectionName.participants, participantId);
   }
 }

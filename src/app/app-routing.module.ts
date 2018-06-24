@@ -8,6 +8,7 @@ import { AttendanceListComponent } from './components/attendance/attendance-list
 import { PendingUsersListComponent } from './components/users/pending-users-list/pending-users-list.component';
 import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
 import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
+import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   { path: 'event/:id/participants', component: AttendanceListComponent },
   { path: 'pending-user/all', component: PendingUsersListComponent },
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
-  { path: 'user-registration', component: UserRegistrationComponent }
+  { path: 'user-registration', component: UserRegistrationComponent },
+  { path: 'my-events', component: MyEventListComponent}
 ];
 
 @NgModule({
