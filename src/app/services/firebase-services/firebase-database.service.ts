@@ -36,8 +36,18 @@ export class FirebaseDatabaseService {
     return this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
   }
 
-  getDocumentById(collectionName: string, id: string): Observable<any> {
-    return this.angularFirestore.doc(collectionName + '/' + id).valueChanges();
+  deleteDocumentById(collectionName: string, id: string) {
+    this.angularFirestore.collection(collectionName).doc(id).delete();
+  }
+
+  getDocumentById(collectionName: string, docId: string): Observable<any> {
+    return this.angularFirestore.doc(collectionName + '/' + docId).snapshotChanges().pipe(
+      map(a => {
+        const data = a.payload.data() as any;
+        const id = a.payload.id;
+        return { id, ...data };
+      })
+    );
   }
 
   getCollectionWhere(collectionName: string, field: string, operator: any, value: any): Observable<any> {

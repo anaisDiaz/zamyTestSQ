@@ -18,6 +18,9 @@ import { AuthService } from './services/firebase-services/auth.service';
 import { LoginComponent } from './components/login/login.component';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireStorageModule, AngularFireStorage } from 'angularfire2/storage';
+import { PendingUsersListComponent } from './components/users/pending-users-list/pending-users-list.component';
+import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
+import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
@@ -39,6 +42,9 @@ const firebaseConfig = {
     EventDetailComponent,
     AttendanceListComponent,
     LoginComponent,
+    PendingUsersListComponent,
+    PendingUserDetailComponent,
+    UserRegistrationComponent,
     NavigationBarComponent,
     MyEventListComponent
   ],
