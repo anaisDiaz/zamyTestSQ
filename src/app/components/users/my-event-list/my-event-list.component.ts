@@ -2,9 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Event } from '../../../models/event.model';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
-import { EventService } from '../../../services/event.service';
+import { EventService } from '../../../services/event-service/event.service';
 import { Router } from '@angular/router';
-import { AttendanceService } from '../../../services/attendance.service';
+import { AttendanceService } from '../../../services/attendance-service/attendance.service';
 
 @Component({
   selector: 'app-my-event-list',

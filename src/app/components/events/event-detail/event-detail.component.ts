@@ -1,13 +1,13 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { EventService } from '../../../services/event.service';
+import { EventService } from '../../../services/event-service/event.service';
 import { Event } from '../../../models/event.model';
 import { ActivatedRoute } from '@angular/router';
-import { AttendanceService } from '../../../services/attendance.service';
+import { AttendanceService } from '../../../services/attendance-service/attendance.service';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
 import { Participant } from '../../../models/participant.model';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user-service/user.service';
 import { User } from '../../../models/user.model';
 
 @Component({
