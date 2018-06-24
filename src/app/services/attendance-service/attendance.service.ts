@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FirebaseDatabaseService } from './firebase-services/firebase-database.service';
+import { FirebaseDatabaseService } from '../firebase-services/firebase-database.service';
 import { Observable } from 'rxjs';
-import { CollectionName } from '../enums/collection-name';
-import { Participant } from '../models/participant.model';
+import { CollectionName } from '../../enums/collection-name';
+import { Participant } from '../../models/participant.model';
 
 @Injectable()
 export class AttendanceService {
