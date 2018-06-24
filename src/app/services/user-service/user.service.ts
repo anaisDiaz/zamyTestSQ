@@ -33,4 +33,8 @@ export class UserService {
     return this.firebaseDatabaseService.getCollectionWithSpecificUsernames(CollectionName.users, usernames);
   }
 
+  deleteUserById(userId: string) {
+    this.firebaseDatabaseService.deleteDocumentById(CollectionName.users, userId);
+  }
+
 }

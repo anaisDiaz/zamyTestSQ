@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../../models/user.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../services/user-service/user.service';
 import { AppSettings } from '../../../app.settings';
 import { AuthService } from '../../../services/firebase-services/auth.service';
@@ -20,7 +20,7 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
   rejectionReason: string;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute,
-     private userService: UserService, private mailerService: MailerService) { }
+     private userService: UserService, private mailerService: MailerService, private router: Router) { }
 
   ngOnInit() {
     this.authService.getAuth().forEach(authUser => {
@@ -41,6 +41,11 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
   reject() {
     console.log('usuario desaprobado');
     this.mailerService.sendRejectionMail(this.pendingUser.email, this.pendingUser.firstname, this.rejectionReason);
+    this.userService.deleteUserById(this.pendingUser.id);
+  }
+
+  goToPendingUsersList() {
+    this.router.navigate(['pending-user', 'all']);
   }
 
   ngOnDestroy() {
