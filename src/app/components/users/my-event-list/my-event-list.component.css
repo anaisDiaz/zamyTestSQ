@@ -4,6 +4,9 @@ h1{
 h5{
     color: teal;
 }
+h6{
+    margin-top: 2px;
+}
 li{
     margin-left: 20%;
     margin-right: 20%;
@@ -12,9 +15,6 @@ li{
     
 }
 
-.iamge col-sm-2{
-    text-align: center;
-}
 .name col-sm-8{
     text-align: left;
 }
@@ -23,8 +23,8 @@ li{
     text-align: center; 
 }
 
-.button{
-   margin-top:8px;
+button{
+   margin-top:20px;
 }
 
 
