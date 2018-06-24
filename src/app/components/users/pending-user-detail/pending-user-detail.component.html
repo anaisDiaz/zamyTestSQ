@@ -1,6 +1,69 @@
+<app-navigation-bar [isAdmin]="isAdmin"></app-navigation-bar>
 <div *ngIf="pendingUser">
     <label class="col-sm-2 col-form-label">{{pendingUser.firstname}}</label>
-    <button type="button" class="btn btn-info" (click)="approve()">Aprobar</button>
-    <button type="button" class="btn btn-danger">Rechazar</button>
+    <button type="button" class="btn btn-info" (click)="approve()" data-toggle="modal" data-target="#successAproval">Aprobar</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#rejectionReason">Rechazar</button>
 </div>
 
+
+<!--MODAL-->
+<div class="modal" id="rejectionReason">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rechazo de solicitud</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Ingrese el motivo de rechazo: </p>
+                <textarea [(ngModel)]="rejectionReason" class="form-control" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="reject()" data-dismiss="modal" data-toggle="modal" data-target="#successRejection">Enviar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--MODAL-->
+<div class="modal" id="successAproval">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Aprobación exitosa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Solicitud aprobada con exito. Zamy Club tiene un nuevo usuario :D </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--MODAL-->
+<div class="modal" id="successRejection">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Rechazo exitoso</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Solicitud rechazada con exito.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../../models/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user-service/user.service';
+import { AppSettings } from '../../../app.settings';
+import { AuthService } from '../../../services/firebase-services/auth.service';
+import { MailerService } from '../../../services/mailer-service/mailer.service';
 
 @Component({
   selector: 'app-pending-user-detail',
@@ -13,18 +16,31 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
   pendingUserId: string;
   routeSubscriber: any;
   userSubscriber: any;
+  isAdmin: boolean;
+  rejectionReason: string;
 
-  constructor(private activatedRoute: ActivatedRoute, private userService: UserService) { }
+  constructor(private authService: AuthService, private activatedRoute: ActivatedRoute,
+     private userService: UserService, private mailerService: MailerService) { }
 
   ngOnInit() {
+    this.authService.getAuth().forEach(authUser => {
+      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
+    });
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.pendingUserId = params['id']);
     this.userSubscriber = this.userService.getUserById(this.pendingUserId).subscribe(user => this.pendingUser = user);
   }
 
   approve() {
     this.pendingUser.status = 1;
+    this.authService.registerUser(this.pendingUser.username, this.pendingUser.password);
     this.userService.update(this.pendingUserId, this.pendingUser);
     console.log('usuario aprobado');
+    this.mailerService.sendWelcomeMail(this.pendingUser.email, this.pendingUser.firstname);
+  }
+
+  reject() {
+    console.log('usuario desaprobado');
+    this.mailerService.sendRejectionMail(this.pendingUser.email, this.pendingUser.firstname, this.rejectionReason);
   }
 
   ngOnDestroy() {

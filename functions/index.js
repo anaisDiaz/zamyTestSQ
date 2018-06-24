@@ -22,17 +22,16 @@ exports.sendZamyWelcomeEmail = functions.firestore.document('mails/{mailId}')
     .onCreate(event => {
         const mailData = event.data();
         console.log('email: ' + mailData.email);
-        sendWelcomeEmail(mailData.email, mailData.firstName);
+        sendWelcomeEmail(mailData.email, mailData.firstName, mailData.subject, mailData.body);
     });
 
-function sendWelcomeEmail(email, firstName) {
+function sendWelcomeEmail(email, firstName, subject, body) {
     const mailOptions = {
         from: `${APP_NAME} <noreply@zamy.com>`,
         to: email,
+        subject: subject,
+        html: body
     };
-
-    mailOptions.subject = `Bienvenido(a) a ${APP_NAME}!`;
-    mailOptions.text = `Hola ${firstName || ''}! Te damos la bienvenida a ${APP_NAME}. I hope you will enjoy our service.`;
     return mailTransport.sendMail(mailOptions).then(() => {
         return console.log('email sent to:', email);
     }).catch(err => { return console.log('error: ' + err); });
