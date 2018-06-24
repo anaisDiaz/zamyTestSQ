@@ -1,0 +1,33 @@
+h1{
+    text-align: center;
+}
+h5{
+    color: teal;
+}
+h6{
+    margin-top: 2px;
+}
+li{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 15px;
+    border-color:teal;
+    
+}
+
+.name col-sm-8{
+    text-align: left;
+}
+
+.boton col-sm-2{
+    text-align: center; 
+}
+
+button{
+   margin-top:20px;
+}
+
+
+
+
+

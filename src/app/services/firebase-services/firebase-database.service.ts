@@ -51,7 +51,7 @@ export class FirebaseDatabaseService {
     );
   }
 
-  getCollectionWithSpecificValues(collectionName: string, values: string[]): Observable<any> {
+  getCollectionWithSpecificUsernames(collectionName: string, values: string[]): Observable<any> {
     return this.angularFirestore.collection(collectionName).snapshotChanges().pipe(
       map(actions => actions.map(a => {
         const data = a.payload.doc.data() as any;

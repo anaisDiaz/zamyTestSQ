@@ -19,7 +19,7 @@ export class UserService {
   }
 
   getUsersByUsernames(usernames: string[]): Observable<User[]> {
-    return this.firebaseDatabaseService.getCollectionWithSpecificValues(CollectionName.users, usernames);
+    return this.firebaseDatabaseService.getCollectionWithSpecificUsernames(CollectionName.users, usernames);
   }
 
 }
