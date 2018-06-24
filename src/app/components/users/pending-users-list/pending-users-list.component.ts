@@ -11,7 +11,7 @@ import { AppSettings } from '../../../app.settings';
 })
 export class PendingUsersListComponent implements OnInit, OnDestroy {
   isAdmin: boolean;
-  pendingUsers: User[];
+  pendingUsers: User[] = [];
   subscriber: any;
 
   constructor(private authService: AuthService, private userService: UserService) { }

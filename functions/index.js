@@ -16,8 +16,6 @@ const mailTransport = nodemailer.createTransport(smtpTransport({
     },
 }));
 
-const APP_NAME = 'Zamy Club';
-
 exports.sendZamyWelcomeEmail = functions.firestore.document('mails/{mailId}')
     .onCreate(event => {
         const mailData = event.data();
@@ -27,10 +25,10 @@ exports.sendZamyWelcomeEmail = functions.firestore.document('mails/{mailId}')
 
 function sendWelcomeEmail(email, firstName, subject, body) {
     const mailOptions = {
-        from: `${APP_NAME} <noreply@zamy.com>`,
+        from: `Zamy Club <noreply@zamy.com>`,
         to: email,
         subject: subject,
-        html: body
+        html: body.replace('{{firstName}}', firstName)
     };
     return mailTransport.sendMail(mailOptions).then(() => {
         return console.log('email sent to:', email);
