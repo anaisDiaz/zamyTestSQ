@@ -19,7 +19,7 @@ import { Observable } from 'rxjs';
 export class AttendanceListComponent implements OnInit, OnDestroy {
   event: Event;
   eventId: string;
-  participants: Participant[];
+  participants: Participant[] = [];
   routeSubscriber: any;
   participantsSubscriber: any;
   eventSubscriber: any;
