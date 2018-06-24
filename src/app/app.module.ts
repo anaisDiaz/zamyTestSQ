@@ -24,6 +24,7 @@ import { UserRegistrationComponent } from './components/users/user-registration/
 import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -46,7 +47,8 @@ const firebaseConfig = {
     PendingUserDetailComponent,
     UserRegistrationComponent,
     NavigationBarComponent,
-    MyEventListComponent
+    MyEventListComponent,
+    NotificationListComponent
   ],
   imports: [
     FormsModule,
