@@ -13,9 +13,10 @@ export class MyEventListComponent implements OnInit {
   ngOnInit() {
   }
 
-  myevents=[
+  myEvents=[
     new Event('EventA1', 'asas', 'asasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
     new Event('EventA2', 'asasass', 'asasasasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
     new Event('EventA3', 'asas', 'asasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
     new Event('EventA4', 'asasass', 'asasasasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg')];
 }
+

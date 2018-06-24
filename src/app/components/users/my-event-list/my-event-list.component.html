@@ -1,15 +1,16 @@
 <app-navigation-bar [isAdmin] = "isAdmin"></app-navigation-bar>
-
 <h1 style="color:teal;" align="center"> Mi lista de eventos</h1>
-
-<div class="container1">
-  <div class="card" *ngFor="let myevent of myevents">
-      <img src="{{myevent.imageURL}}" alt="Avatar" style="width:100%">
-      <div class= "container2">
-        <h4 style="color: royalblue">{{myevent.name}}</h4>
-        <p><strong> Hora: </strong> :{{myevent.date.toDate() |  date : 'h:mma'}} </p> 
-        <p><strong> Fecha: </strong> :{{myevent.date.toDate() | date : " MMMM d, EEEE , y"}} </p> 
-        <button  type="button" class="btn btn-primary btn-sm" (click)="goToEventDetails(event.id)" >Seguir Leyendo</button>
+<div class="list-events-all" *ngFor= "let myEvent of myEvents">
+  <li class="list-group-item">
+    <div class="row">
+      <div class="image col-sm-2"><img src="{{myEvent.imageURL}}" alt="Avatar" style="width:100px"></div>
+      <div class="name col-sm-8">
+        <h5><strong>{{myEvent.name}}</strong></h5>
+        <P><strong>Fecha: </strong>{{myEvent.date | date : " MMMM d, EEEE , y"}}</P>
       </div>
+      <div class="boton col-sm-2"><button type="button" class="btn btn-info"  (click)="goToEventDetails(event.id)">ver mas</button></div>
     </div>
+    
+  </li>
+
 </div>
