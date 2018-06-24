@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { User } from '../../../models/user.model';
-import { UserService } from '../../../services/user.service';
+import { UserService } from '../../../services/user-service/user.service';
 
 @Component({
   selector: 'app-pending-users-list',
