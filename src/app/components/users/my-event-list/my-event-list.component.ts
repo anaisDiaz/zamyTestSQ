@@ -1,21 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Event } from '../../../models/event.model';
+import { EventService } from '../../../services/event.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-event-list',
   templateUrl: './my-event-list.component.html',
   styleUrls: ['./my-event-list.component.css']
 })
-export class MyEventListComponent implements OnInit {
-  //myEvent: Event[];
-  constructor() { }
+export class MyEventListComponent implements OnInit, OnDestroy {
+  subscriber: any;
+  myEvents: Event[];
+
+  constructor(private router: Router, private eventService: EventService) { }
 
   ngOnInit() {
+    this.subscriber = this.eventService.getAll().subscribe(eventList => this.myEvents = eventList);
   }
 
-  myevents=[
-    new Event('EventA1', 'asas', 'asasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
-    new Event('EventA2', 'asasass', 'asasasasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
-    new Event('EventA3', 'asas', 'asasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg'), 
-    new Event('EventA4', 'asasass', 'asasasasa', new Date(), 0, new Date(), 'http://s2.subirimagenes.com/otros/previo/thump_9855489il570xn.jpg')];
+  goToEventDetails(eventId: string): void {
+    this.router.navigate(['event', eventId]);
+  }
+
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
+  }
+
 }

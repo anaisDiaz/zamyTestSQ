@@ -25,4 +25,8 @@ export class EventService {
   getEventById(id: string): Observable<Event> {
     return this.firebaseDatabaseService.getDocumentById(CollectionName.events, id);
   }
+
+  getEventsByParticipant(participantId: string): Observable<Event[]> {
+    return this.firebaseDatabaseService.getCollectionIfContainsDocument(CollectionName.events + '/{$eventId}/participants', participantId);
+  }
 }
