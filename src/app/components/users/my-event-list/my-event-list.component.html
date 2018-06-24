@@ -7,7 +7,7 @@
       <div class="name col-sm-8">
         <h5><strong>{{myEvent.name}}</strong></h5>
         <h6><strong>Fecha: </strong>{{myEvent.date | date : " MMMM d, EEEE , y"}}</h6>
-        <h6><strong>Hora: </strong> :{{myEvent.date |  date : 'h:mma'}} </h6>  
+        <h6><strong>Hora: </strong> :{{myEvent.date |  date: 'h:mma'}} </h6>  
       </div>
       <div class="boton col-sm-2"><button type="button" class="btn btn-info"  (click)="goToEventDetails(event.id)"><h6>Ver más</h6></button></div>
     </div>
