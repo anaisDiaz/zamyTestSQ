@@ -46,6 +46,7 @@ export class UserRegistrationComponent implements OnInit {
     this.user.email = this.user.username + AppSettings.emailDomain;
     this.user.password = this.encrypt(this.user.password);
     this.userService.save(this.user.id, this.user);
+    this.uploadImage(this.uploadEvent);
     console.log('Se registro la solicitud del usuario');
   }
 
