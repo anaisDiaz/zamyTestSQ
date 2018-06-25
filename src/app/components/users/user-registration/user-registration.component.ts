@@ -4,9 +4,6 @@ import { UserService } from '../../../services/user-service/user.service';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
 
-
-const emailDomain = AppSettings.emailDomain;
-
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
@@ -18,6 +15,7 @@ export class UserRegistrationComponent implements OnInit {
   uploadEvent: any;
   imageUrl = '../assets/upload image.png';
   fileToUpload: File = null;
+  emailDomain = AppSettings.emailDomain;
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
