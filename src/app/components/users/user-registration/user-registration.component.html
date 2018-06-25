@@ -1,5 +1,3 @@
-<app-navigation-bar [isAdmin]=true>
-</app-navigation-bar>
 <div class="container">
   <header id="#FONDO">
     <div class="space">
@@ -11,37 +9,44 @@
             <h3 class="text-center">Crear una Cuenta</h3>
             <div class="card-body">
               <form #eventForm="ngForm">
+                <!-- Codigo -->
+                <div class="form-group">
+                    <label class="col-form-label" for="name">Codigo</label>
+                    <input type="text" class="form-control"  name="Codigo" #name="ngModel" [(ngModel)]="user.id"
+                      required>
+                  </div>
                 <!-- NOMBRE -->
                 <div class="form-group">
                   <label class="col-form-label" for="name">Nombre</label>
-                  <input type="text" class="form-control"  name="name" #name="ngModel" [(ngModel)]="user.name"
+                  <input type="text" class="form-control"  name="name" #name="ngModel" [(ngModel)]="user.firstname"
                     required>
                 </div>
                 <!-- APELLIDO -->
                 <div class="form-group">
                   <label class="col-form-label" for="name">Apellido</label>
-                  <input type="text" class="form-control"  name="description" #description="ngModel" [(ngModel)]="user.Apellido "
+                  <input type="text" class="form-control"  name="description" #description="ngModel" [(ngModel)]="user.lastname"
                     required>
                 </div>
                 <!-- correo -->
                 <div class="form-group">
                     <label for="exampleInputEmail1">Correo</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"name="Correo" #name="ngModel" [(ngModel)]="user.username">
+                    <p>{{emailDomain}}</p>
                   </div>
                   <!-- contraseña -->
                   <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+                    <input type="password" class="form-control" id="exampleInputPassword1"name="Contraseña" #name="ngModel" [(ngModel)]="user.password">
                   </div>
                 <!-- cargo -->
                   <div class="form-group">
                       <label for="exampleSelect1">cargo</label>
-                      <select class="form-control" id="exampleSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-control" id="exampleSelect1" name="cargo" #name="ngModel" [(ngModel)]="user.position">
+                        <option>Programador</option>
+                        <option>Secretaria de RRHH</option>
+                        <option>Jefe de Seguridad Informatica</option>
+                        <option>Analista de Sistemas</option>
+                        <option>Practicante</option>
                       </select>
                     </div>
                 <!-- IMAGEN -->
@@ -54,7 +59,7 @@
                     <input type="file" (change)="setUploadEvent($event)" accept=".png,.jpg" name="imageURL">
                     <small id="fileHelp" class="form-text text-muted">
                       <font style="vertical-align: inherit;">
-                        <font style="vertical-align: inherit;"> Seleccione una imagen referente al evento. </font>
+                        <font style="vertical-align: inherit;"> Seleccione una imagen del voucher. </font>
                       </font>
                     </small>
                     <img [src]="imageUrl" class="center-block col-md-10">
@@ -62,7 +67,7 @@
   
                   </div>
                 <!-- BOTON REGISTRAR-->
-                <button class="btn btn-success" (click)="onSubmit()" data-toggle="modal" data-target="#success">
+                <button class="btn btn-success" (click)="registerUserApplication()" data-toggle="modal" data-target="#success">
                     <font style="vertical-align: inherit;">
                       <font style="vertical-align: inherit;">
                         <i class="fas fa-plus-circle"></i>

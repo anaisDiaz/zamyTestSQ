@@ -31,9 +31,9 @@ export class User {
         return JSON.parse(
             '{"username": "' + this.username +
             '" , "password": "' + this.password +
-            '" , "status": "' + this.status +
-            '" , "role": "' + this.role +
-            '" , "firstname": "' + this.firstname +
+            '" , "status": ' + this.status +
+            ' , "role": ' + this.role +
+            ' , "firstname": "' + this.firstname +
             '" , "lastname": "' + this.lastname +
             '" , "position": "' + this.position +
             '" , "email": "' + this.email +

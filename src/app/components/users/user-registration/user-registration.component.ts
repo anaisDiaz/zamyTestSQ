@@ -9,9 +9,13 @@ import { AppSettings } from '../../../app.settings';
   templateUrl: './user-registration.component.html',
   styleUrls: ['./user-registration.component.css']
 })
+const emailDomain = AppSettings.emailDomain;
+
 export class UserRegistrationComponent implements OnInit {
   user: User;
-  isAdmin: boolean;
+  uploadEvent: any;
+  imageUrl = '../assets/upload image.png';
+  fileToUpload: File = null;
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
@@ -20,9 +24,7 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   registerUserApplication(): void {
-    this.authService.getAuth().forEach(authUser => {
-      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
-    });
+    this.user.email = this.user.username + AppSettings.emailDomain;
     this.user.password = this.encrypt(this.user.password);
     this.userService.save(this.user.id, this.user);
     console.log('Se registro la solicitud del usuario');
@@ -30,6 +32,17 @@ export class UserRegistrationComponent implements OnInit {
 
   encrypt(text: string): string {
     return text + '.';
+  }
+
+  setUploadEvent(event) {
+    this.uploadEvent = event;
+    console.log(this.uploadEvent);
+    this.fileToUpload = this.uploadEvent.target.files[0];
+    const reader = new FileReader();
+    reader.onload = (_event: any) => {
+      this.imageUrl = _event.target.result;
+    };
+    reader.readAsDataURL(this.fileToUpload);
   }
 
 }
