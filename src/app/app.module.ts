@@ -25,6 +25,7 @@ import { AttendanceService } from './services/attendance-service/attendance.serv
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+import { EventEditingComponent } from './components/events/event-editing/event-editing.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -47,7 +48,8 @@ const firebaseConfig = {
     PendingUserDetailComponent,
     UserRegistrationComponent,
     NavigationBarComponent,
-    MyEventListComponent
+    MyEventListComponent,
+    EventEditingComponent
   ],
   imports: [
     FormsModule,
