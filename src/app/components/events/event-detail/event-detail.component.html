@@ -5,34 +5,32 @@
     <div class="card">
       <h1 style="color:rgb(0, 128, 49);" align="center"> {{event.name}}</h1>
       <div class="image">
-          <img src="{{event.imageURL}}" alt="Avatar" style="width:100%">
-      </div>  
+        <img src="{{event.imageURL}}" alt="Avatar" style="width:100%">
+      </div>
       <div class="container2">
-        <p>{{event.description}} </p>
+        <p class="text-muted">{{event.description}} </p>
       </div>
     </div>
   </div>
+
 
   <div class="third-container">
     <div class="card">
       <div class="fourth-item">
         <p class="text-muted">
-          <strong> Fecha: </strong> {{event.date | date : " MMMM d, EEEE , y"}} </p>
+          <strong> Fecha: </strong> {{event.date.toDate() | date : " MMMM d, EEEE , y"}}</p>
         <p class="text-muted">
-          <strong> Hora: </strong>  {{event.date.toDate() | date : 'h:mma'}} </p>
+          <strong> Hora: </strong> {{event.date.toDate() | date : 'h:mma'}} </p>
         <p class="text-muted">
-          <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate}} </p>
+          <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate.toDate() | date : " MMMM d, EEEE , y"}}</p>
         <p class="text-muted">
           <strong> Precio: </strong> {{event.price}} </p>
-          <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
-          <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
+        <p class="text-muted">
+          <strong> Lugar:</strong>{{event.location}}</p>
+        <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
+        <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
       </div>
     </div>
-  </div>
-
-  <div class="map-container">
-      <p class="text-muted">
-        <strong> Lugar:</strong>{{event.location}}</p>
   </div>
 </div>
 <!--MODAL-->

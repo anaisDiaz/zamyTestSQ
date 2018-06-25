@@ -26,14 +26,22 @@ export class FirebaseDatabaseService {
     this.angularFirestore.collection(collectionName).doc(id).set(JSON.parse(jsonString));
   }
 
-  updateDocument(collectionName: string, object: Object, id: string) {
-    const jsonString = JSON.stringify(object);
-    this.angularFirestore.collection(collectionName).doc(id).update(JSON.parse(jsonString));
+  updateDocument(collectionName: string, object: Object, id: string, containsTimestamp?: boolean) {
+    if (containsTimestamp) {
+      this.angularFirestore.collection(collectionName).doc(id).update(object);
+    } else {
+      const jsonString = JSON.stringify(object);
+      this.angularFirestore.collection(collectionName).doc(id).update(JSON.parse(jsonString));
+    }
   }
 
-  addDocumentNoId(collectionName: string, object: Object): Promise<any> {
-    const jsonString = JSON.stringify(object);
-    return this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
+  addDocumentNoId(collectionName: string, object: Object, containsTimestamp?: boolean): Promise<any> {
+    if (containsTimestamp) {
+      return this.angularFirestore.collection(collectionName).add(object);
+    } else {
+      const jsonString = JSON.stringify(object);
+      return this.angularFirestore.collection(collectionName).add(JSON.parse(jsonString));
+    }
   }
 
   deleteDocumentById(collectionName: string, id: string) {

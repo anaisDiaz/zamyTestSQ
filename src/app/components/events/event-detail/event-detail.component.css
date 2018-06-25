@@ -1,3 +1,4 @@
+
 .second-container{
     min-height: 50%;  
     min-height: 50vh; 
@@ -11,6 +12,7 @@
     margin-top : 50px;
     margin-left: 50px;
     margin-right: 0px;
+    margin-right: 50px;
 }
 .container2{
     margin: 10px;
@@ -49,21 +51,4 @@
     margin-right: 10px;
     margin-left: 35px;
     margin-bottom: 10px;
-} 
-
-
-.map-container {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-    position: absolute;
-    top: 75%;
-    transition: 0.3s;
-    width: 40%;
-    height:20% ;
-    right: 50px;
-}
-
-.map-container p{
-    line-height: 2em;
-    margin-right: 10px;
-    margin-left: 15px;
 }
