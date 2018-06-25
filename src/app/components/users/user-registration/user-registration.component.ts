@@ -17,7 +17,7 @@ export class UserRegistrationComponent implements OnInit {
   fileToUpload: File = null;
   emailDomain = AppSettings.emailDomain;
 
-  constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User(null, null, null, 0, null, null, null, null, null);
