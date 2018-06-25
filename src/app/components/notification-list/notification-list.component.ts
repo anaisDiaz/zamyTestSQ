@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Notification } from '../../models/notification.model';
 
 @Component({
   selector: 'app-notification-list',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notification-list.component.css']
 })
 export class NotificationListComponent implements OnInit {
+  notification: Notification[] = [];
 
   constructor() { }
 
