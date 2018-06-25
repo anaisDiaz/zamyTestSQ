@@ -25,6 +25,7 @@ import { AttendanceService } from './services/attendance-service/attendance.serv
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { NotificationService } from './services/notification-service/notification.service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -64,7 +65,9 @@ const firebaseConfig = {
     FirebaseDatabaseService,
     UserService,
     EventService,
-    AttendanceService],
+    AttendanceService,
+    NotificationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
