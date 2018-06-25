@@ -12,7 +12,7 @@ import { AppSettings } from '../../../app.settings';
 export class UserRegistrationComponent implements OnInit {
   user: User;
 
-  constructor(private authService: AuthService, private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User(null, null, null, 0, null, null, null, null, null);
