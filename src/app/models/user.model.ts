@@ -8,6 +8,7 @@ export class User {
     lastname: string;
     position: string;
     email: string;
+    voucherImageURL: string;
 
     constructor(id: string, username: string, password: string,
         status: number,
@@ -15,7 +16,8 @@ export class User {
         firstname: string,
         lastname: string,
         position: string,
-        email: string) {
+        email: string,
+        voucherImageURL: string) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -25,6 +27,7 @@ export class User {
         this.lastname = lastname;
         this.position = position;
         this.email = email;
+        this.voucherImageURL = voucherImageURL;
     }
 
     toJSON(): JSON {
@@ -37,6 +40,7 @@ export class User {
             '" , "lastname": "' + this.lastname +
             '" , "position": "' + this.position +
             '" , "email": "' + this.email +
+            '" , "voucherImageURL": "' + this.voucherImageURL +
             '" }'
         );
     }
