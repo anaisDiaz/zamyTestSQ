@@ -30,7 +30,7 @@ export class EventEditingComponent implements OnInit {
 
   ngOnInit() {
     this.routeSubscriber = this.activatedRoute.params.subscribe(params => this.eventId = params['id']);
-    this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event =>{
+    this.eventSubscriber = this.eventService.getEventById(this.eventId).subscribe(event => {
       this.event = event;
     });
   }
