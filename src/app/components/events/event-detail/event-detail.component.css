@@ -16,8 +16,8 @@
     margin: 10px;
 }
 .image{
-    margin-right: 0px;
-    margin-left: 0px;
+    margin-right: center;
+    margin-left: 0%;
     margin-top: 10px;
     margin-bottom: 20px;
 }
@@ -25,7 +25,7 @@
 
 .third-container .card{
     position: absolute;
-    top: 25%;
+    top: 26%;
     width: 40%;
     padding: 0%;
     right: 50px;
