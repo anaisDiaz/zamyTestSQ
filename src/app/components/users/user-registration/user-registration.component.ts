@@ -11,7 +11,6 @@ import { AppSettings } from '../../../app.settings';
 })
 export class UserRegistrationComponent implements OnInit {
   user: User;
-  isAdmin: boolean;
 
   constructor(private authService: AuthService, private userService: UserService) { }
 
@@ -20,9 +19,6 @@ export class UserRegistrationComponent implements OnInit {
   }
 
   registerUserApplication(): void {
-    this.authService.getAuth().forEach(authUser => {
-      this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
-    });
     this.user.password = this.encrypt(this.user.password);
     this.userService.save(this.user.id, this.user);
     console.log('Se registro la solicitud del usuario');
