@@ -24,6 +24,7 @@ import { UserRegistrationComponent } from './components/users/user-registration/
 import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
+import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -53,7 +54,8 @@ const firebaseConfig = {
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DlDateTimePickerDateModule
   ],
   providers: [
     AuthService,
