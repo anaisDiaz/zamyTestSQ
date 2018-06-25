@@ -8,7 +8,6 @@ import { EventService } from '../../../services/event-service/event.service';
 import { UserService } from '../../../services/user-service/user.service';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-attendance-list',

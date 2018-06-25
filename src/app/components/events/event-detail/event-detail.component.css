@@ -1,3 +1,4 @@
+
 .second-container{
     min-height: 50%;  
     min-height: 50vh; 
@@ -11,6 +12,7 @@
     margin-top : 50px;
     margin-left: 50px;
     margin-right: 0px;
+    margin-right: 50px;
 }
 .container2{
     margin: 10px;
@@ -49,4 +51,4 @@
     margin-right: 10px;
     margin-left: 35px;
     margin-bottom: 10px;
-} 
+}
