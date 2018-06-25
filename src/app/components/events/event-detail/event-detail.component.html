@@ -16,13 +16,13 @@
   <div class="third-container">
     <div class="card">
       <div class="fourth-item">
-        <p>
+        <p class="text-muted">
           <strong> Fecha: </strong> {{event.date | date : " MMMM d, EEEE , y"}} </p>
-        <p>
+        <p class="text-muted">
           <strong> Hora: </strong>  {{event.date.toDate() | date : 'h:mma'}} </p>
-        <p>
+        <p class="text-muted">
           <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate}} </p>
-        <p>
+        <p class="text-muted">
           <strong> Precio: </strong> {{event.price}} </p>
           <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
           <button type="button" class="btn btn-warning" routerLink="participants">Ver participantes</button>
@@ -31,10 +31,8 @@
   </div>
 
   <div class="map-container">
-      <p>
+      <p class="text-muted">
         <strong> Lugar:</strong>{{event.location}}</p>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.964503145584!2d-77.03276138572197!3d-12.045963345164056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8b5d5aa7eb1%3A0x16061e0b481e22aa!2sPlaza+Mayor+de+Lima!5e0!3m2!1ses!2spe!4v1528232353911"
-        width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
   </div>
 </div>
 <!--MODAL-->
