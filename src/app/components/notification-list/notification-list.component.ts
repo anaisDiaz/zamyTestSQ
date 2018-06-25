@@ -25,7 +25,7 @@ export class NotificationListComponent implements OnInit, OnDestroy {
         notifications.forEach(notification => {
           this.attendanceService.getAttendanceById(notification.eventId, this.participantId).subscribe(
             participant => {
-              if (participant.inscriptionDate !== undefined) {
+              if (participant.inscriptionDate !== undefined && !this.notifications.find(n => n.eventId === notification.eventId)) {
                 this.notifications.push(notification);
               }
             }

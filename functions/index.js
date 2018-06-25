@@ -28,7 +28,7 @@ exports.sendZamyWelcomeEmail = functions.firestore.document('mails/{mailId}')
 exports.createNotification = functions.firestore.document('events/{eventId}')
     .onUpdate((change, context) => {
         const eventId = context.params.eventId;
-        return admin.firestore().collection('notifications').add({
+        return admin.firestore().collection('notifications').doc('n0tIF' + eventId).set({
             'eventId': eventId,
             'eventName': change.after.data().name
         }).then(() => {
