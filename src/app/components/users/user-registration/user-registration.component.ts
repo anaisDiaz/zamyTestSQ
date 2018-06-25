@@ -4,12 +4,14 @@ import { UserService } from '../../../services/user-service/user.service';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
 
+
+const emailDomain = AppSettings.emailDomain;
+
 @Component({
   selector: 'app-user-registration',
   templateUrl: './user-registration.component.html',
   styleUrls: ['./user-registration.component.css']
 })
-const emailDomain = AppSettings.emailDomain;
 
 export class UserRegistrationComponent implements OnInit {
   user: User;
