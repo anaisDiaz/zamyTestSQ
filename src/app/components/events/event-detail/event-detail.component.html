@@ -17,11 +17,11 @@
     <div class="card">
       <div class="fourth-item">
         <p class="text-muted">
-          <strong> Fecha: </strong> {{event.date | date : " MMMM d, EEEE , y"}} </p>
+          <strong> Fecha: </strong> {{event.date.toDate() | date : " MMMM d, EEEE , y"}}</p>
         <p class="text-muted">
-          <strong> Hora: </strong>  {{event.date.toDate() | date : 'h:mma'}} </p>
+          <strong> Hora: </strong> {{event.date.toDate() |  date : 'h:mma'}} </p>
         <p class="text-muted">
-          <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate}} </p>
+          <strong> Fecha Limite de inscripcion: </strong> {{event.lastRegisterDate.toDate() | date : " MMMM d, EEEE , y"}}</p>
         <p class="text-muted">
           <strong> Precio: </strong> {{event.price}} </p>
           <button *ngIf="!isAdmin" type="button" class="btn btn-success" (click)="saveAttendance()" data-toggle="modal" data-target="#participantSavedSuccessfully">participar</button>
