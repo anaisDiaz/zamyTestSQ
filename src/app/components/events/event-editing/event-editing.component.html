@@ -26,7 +26,7 @@
                 <!-- FECHA y HORA (INICIO DE EVENTO)-->
                 <div class="jumbotron">
                   <label class="col-form-label" for="location">Fecha y hora</label>
-                  <dl-date-time-picker name="date" [(ngModel)]="event.date"></dl-date-time-picker>
+                  <dl-date-time-picker name="date" id="datetimepicker-input" [(ngModel)]="event.date"></dl-date-time-picker>
                 </div>
                 <!-- COSTO -->
                 <div class="form-group">
@@ -71,15 +71,6 @@
                     <font style="vertical-align: inherit;">
                       <i class="fas fa-plus-circle"></i>
                       Registrar
-                    </font>
-                  </font>
-                </button>
-                <!-- BOTON LIMPIAR-->
-                <button type="reset" class="btn btn-danger btn -lg" (click)="resetForm(eventForm)">
-                  <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">
-                      <i class="fas fa-sync-alt"></i>
-                      Limpiar
                     </font>
                   </font>
                 </button>
