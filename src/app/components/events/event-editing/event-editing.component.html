@@ -8,8 +8,8 @@
         <div class="col-md-10 mx-auto mt-2">
           <div class="jumbotron">
             <br>
-            <h3 class="text-center">Registro de evento</h3>
-            <div class="card-body">
+            <h3 class="text-center">Modificación de evento</h3>
+            <div class="card-body" *ngIf="event">
               <form #eventForm="ngForm">
                 <!-- NOMBRE -->
                 <div class="form-group">
@@ -44,7 +44,7 @@
                 <div class="image" *ngIf="!hasUploadedNewImage">
                   <img src="{{event.imageURL}}" alt="Avatar" style="width:100%">
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="hasUploadedNewImage">
                   <label for="urlImage">
                     <font style="vertical-align: inherit;">
                       <font style="vertical-align: inherit;"> Entrada de archivo </font>
@@ -104,7 +104,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <p>Evento registrado con exito.</p>
+          <p>Evento modificado con exito.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "goToEvents()">Cerrar</button>
