@@ -49,7 +49,6 @@ export class EventRegistrationComponent implements OnInit {
       this.event.id = event.id;
       console.log('id = ' + event.id);
       this.uploadImage(this.uploadEvent);
-      this.resetForm();
     });
   }
 
@@ -64,9 +63,4 @@ export class EventRegistrationComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
-  resetForm() {
-    if (this.eventForm != null) {
-      this.eventForm.reset();
-    }
-  }
 }
