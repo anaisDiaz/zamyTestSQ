@@ -28,10 +28,22 @@
                     <label for="exampleInputEmail1">Correo</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                   </div>
+                  <!-- contraseña -->
                   <div class="form-group">
                     <label for="exampleInputPassword1">Contraseña</label>
                     <input type="password" class="form-control" id="exampleInputPassword1">
                   </div>
+                <!-- cargo -->
+                  <div class="form-group">
+                      <label for="exampleSelect1">cargo</label>
+                      <select class="form-control" id="exampleSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                    </div>
                 <!-- IMAGEN -->
                 <div class="form-group">
                     <label for="urlImage">
@@ -49,15 +61,6 @@
                     <br>
   
                   </div>
-                <!-- BOTON LIMPIAR-->
-                <button type="reset" class="btn btn-danger btn -lg" (click)="resetForm(eventForm)">
-                    <font style="vertical-align: inherit;">
-                      <font style="vertical-align: inherit;">
-                        <i class="fas fa-sync-alt"></i>
-                        Cancelar
-                      </font>
-                    </font>
-                  </button>
                 <!-- BOTON REGISTRAR-->
                 <button class="btn btn-success" (click)="onSubmit()" data-toggle="modal" data-target="#success">
                     <font style="vertical-align: inherit;">
