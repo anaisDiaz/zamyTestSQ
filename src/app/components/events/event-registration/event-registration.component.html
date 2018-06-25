@@ -63,7 +63,7 @@
                   <dl-date-time-picker name="lastRegisterDate" [(ngModel)]="event.lastRegisterDate"></dl-date-time-picker>
                 </div>
                 <!-- BOTON REGISTRAR-->
-                <button class="btn btn-success" (click)="onSubmit()">
+                <button class="btn btn-success" (click)="onSubmit()" data-toggle="modal" data-target="#success">
                   <font style="vertical-align: inherit;">
                     <font style="vertical-align: inherit;">
                       <i class="fas fa-plus-circle"></i>
@@ -89,3 +89,23 @@
     </div>
   </header>
 </div>
+
+<!--MODAL-->
+<div class="modal" id="success">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><span class="badge badge-success">Registro Exitoso</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Evento registrado con exito.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
