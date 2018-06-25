@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
   { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'my-events', component: MyEventListComponent },
-  { path: 'event/:id/edit', component: EventEditingComponent }
+  { path: 'event/:id/edit', component: EventEditingComponent },
   { path: 'password-restoration' , component: PasswordRestorationComponent }
 ];
 
