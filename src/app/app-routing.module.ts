@@ -10,6 +10,7 @@ import { PendingUserDetailComponent } from './components/users/pending-user-deta
 import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { EventEditingComponent } from './components/events/event-editing/event-editing.component';
+import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'my-events', component: MyEventListComponent },
   { path: 'event/:id/edit', component: EventEditingComponent }
+  { path: 'password-restoration' , component: PasswordRestorationComponent }
 ];
 
 @NgModule({
