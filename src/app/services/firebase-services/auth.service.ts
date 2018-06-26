@@ -24,7 +24,7 @@ export class AuthService {
   }
 
   resetPassword(email: string) {
-    return this.angularFireAuth.auth.sendPasswordResetEmail(email, this.actionCodeSettings)
+    return this.angularFireAuth.auth.sendPasswordResetEmail(email)
       .then(() => console.log('reset password - email sent'))
       .catch((error) => console.log(error));
   }
