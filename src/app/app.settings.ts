@@ -1,5 +1,5 @@
 export class AppSettings {
-    public static emailDomain = '@bcp.com.pe';
+    public static emailDomain = '@gmail.com';
     public static adminSuffix = '.zamy.admin';
     public static imageFileExtension = '.jpg';
     public static mainURL = 'http://localhost:4200';

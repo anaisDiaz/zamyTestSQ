@@ -26,6 +26,7 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { NotificationService } from './services/notification-service/notification.service';
+import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -49,7 +50,8 @@ const firebaseConfig = {
     UserRegistrationComponent,
     NavigationBarComponent,
     MyEventListComponent,
-    NotificationListComponent
+    NotificationListComponent,
+    PasswordRestorationComponent
   ],
   imports: [
     FormsModule,

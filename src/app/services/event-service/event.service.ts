@@ -14,13 +14,31 @@ export class EventService {
     return this.firebaseDatabaseService.getCollectionWhere(CollectionName.events, 'date', '>=', new Date());
   }
 
+
   save(event: Event): Promise<any> {
-    return this.firebaseDatabaseService.addDocumentNoId(CollectionName.events, event);
+    return this.firebaseDatabaseService.addDocumentNoId(CollectionName.events, {
+      name: event.name,
+      description: event.description,
+      location: event.location,
+      date: event.date,
+      price: event.price,
+      lastRegisterDate: event.lastRegisterDate,
+      imageURL: event.imageURL
+    }, true);
   }
 
   update(eventId: string, event: Event) {
-    this.firebaseDatabaseService.updateDocument(CollectionName.events, event, eventId);
+    this.firebaseDatabaseService.updateDocument(CollectionName.events, {
+      name: event.name,
+      description: event.description,
+      location: event.location,
+      date: event.date,
+      price: event.price,
+      lastRegisterDate: event.lastRegisterDate,
+      imageURL: event.imageURL
+    }, eventId, true);
   }
+
 
   getEventById(id: string): Observable<Event> {
     return this.firebaseDatabaseService.getDocumentById(CollectionName.events, id);

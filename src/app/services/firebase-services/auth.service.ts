@@ -28,12 +28,10 @@ export class AuthService {
     return this.angularFireAuth.authState.pipe(auth => auth);
   }
 
-  sendVerificationEmail() {
-    this.angularFireAuth.authState.subscribe(user => {
-      user.sendEmailVerification(this.actionCodeSettings).then(() => {
-        console.log('email sent');
-        console.log('user email: ' + user.email);
-      });
-    });
+  resetPassword(email: string) {
+    return this.angularFireAuth.auth.sendPasswordResetEmail(email)
+      .then(() => console.log('reset password - email sent'))
+      .catch((error) => console.log(error));
   }
+
 }

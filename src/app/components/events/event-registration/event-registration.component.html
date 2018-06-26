@@ -1,96 +1,111 @@
-<app-navigation-bar [isAdmin] = true></app-navigation-bar>
+<app-navigation-bar [isAdmin]=t rue>
+</app-navigation-bar>
 <div class="container">
   <header id="#FONDO">
     <div class="space">
-      <div  class="row">
+      <div class="row">
         <!--REGISTRO -->
         <div class="col-md-10 mx-auto mt-2">
           <div class="jumbotron">
-              <br>
-              <h3 class="text-center">Registro de evento</h3>
-              <div class="card-body">
-                <form #eventForm="ngForm">
-                  <!-- NOMBRE -->
-                  <div class="form-group">
-                      <label class="col-form-label" for="name">Nombre</label>
-                      <input type="text" class="form-control" placeholder="Ingrese el nombre " name="name" #name="ngModel" [(ngModel)] ="event.name" required>
-                  </div>
-                  <!-- DESCRIPCION -->
-                  <div class="form-group">
-                    <label class="col-form-label" for="name">Descripcion</label>
-                    <input type="text" class="form-control" placeholder="Ingrese descripcion " name="description" #description="ngModel" [(ngModel)] ="event.description" required>
+            <br>
+            <h3 class="text-center">Registro de evento</h3>
+            <div class="card-body">
+              <form #eventForm="ngForm">
+                <!-- NOMBRE -->
+                <div class="form-group">
+                  <label class="col-form-label" for="name">Nombre</label>
+                  <input type="text" class="form-control" placeholder="Ingrese el nombre " name="name" #name="ngModel" [(ngModel)]="event.name"
+                    required>
                 </div>
-                  <!-- LUGAR -->
-                  <div class="form-group">
-                      <label class="col-form-label" for="location">Lugar</label>
-                      <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)] ="event.location" required>
-                  </div>
-                  <!-- FECHA y HORA (INICIO DE EVENTO)-->
-                  <div class="form-group">
-                    <label class="col-form-label" for="date">Inicio de evento</label>
-                    <div class="input-group">
-                      <input type="datetime-local" class="form-control"  name="date" #date="ngModel" [(ngModel)] ="date1" required>
-                      <span class="validity"></span>
+                <!-- LUGAR -->
+                <div class="form-group">
+                  <label class="col-form-label" for="location">Lugar</label>
+                  <input type="text" class="form-control" placeholder="Ingrese el lugar" name="location" #location="ngModel" [(ngModel)]="event.location"
+                    required>
+                </div>
+                <!-- FECHA y HORA (INICIO DE EVENTO)-->
+                <div class="jumbotron">
+                  <label class="col-form-label" for="location">Fecha y hora</label>
+                  <dl-date-time-picker name="date" [(ngModel)]="event.date"></dl-date-time-picker>
+                </div>
+                <!-- COSTO -->
+                <div class="form-group">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">S/.</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Price" name="price" #price="ngModel" [(ngModel)]="event.price" required>
+                    <div class="input-group-append">
+                      <span class="input-group-text">.00</span>
                     </div>
                   </div>
-                  
-                  <!-- COSTO -->
-                  <div class="form-group">
-                      <label class="control-label">Costo</label>
-                      <div class="form-group">
-                        <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">S/.</span>
-                          </div>
-                          <input type="text" class="form-control" aria-label="Price" name="price" #price="ngModel"  [(ngModel)] ="event.price" required>
-                          <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                          </div>
-                        </div>
-                      </div>
-                  </div>
-                  <!-- IMAGEN -->
-                  <div class = "form-group">
-                      <label for = "urlImage"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Entrada de archivo </font> </font> </label>
-                      <input type = "file"  (change)="setUploadEvent($event)"  accept =".png,.jpg"  name="imageURL">
-                      <small id = "fileHelp" class = "form-text text-muted"> <font style = "vertical-align: inherit;"> <font style = "vertical-align: inherit;"> Seleccione una imagen referente al evento. </font> </font> </small>
-                      <img [src]="imageUrl"  class="center-block col-md-10">
-                      <br>
-                      
-                  </div>
-                  <!-- FIN INSCRIPCION -->
-                  <div class="form-group">
-                      <label class="col-form-label" for="lastRegisterDate">Limite de inscripcion</label>
-                      <div class="input-group">
-                        <label class="col-form-label" for="lastRegisterDate"></label>
-                        <input type="date" class="form-control" min="2018-06-06" max="2018-12-20" name="lastRegisterDate" #lastRegisterDate ="ngModel" [(ngModel)] ="date2" required>
-                        <span class="validity"></span>
-                      </div>
-                  </div>
-                  <!-- BOTON REGISTRAR-->
-                  <button  class = "btn btn-success" (click) = "onSubmit()">
-                      <font style = "vertical-align: inherit;"> 
-                        <font style="vertical-align: inherit;">
-                          <i class="fas fa-plus-circle"></i>
-                          Registrar
-                        </font>
-                      </font>
-                  </button>
-                  <!-- BOTON LIMPIAR-->
-                  <button type = "reset" class = "btn btn-danger  btn -lg" (click)="resetForm(eventForm)">
-                      <font style = "vertical-align: inherit;"> 
-                        <font style="vertical-align: inherit;">
-                          <i class="fas fa-sync-alt"></i>
-                          Limpiar
-                        </font>
-                      </font>
-                  </button>
-                </form>
-              </div>
+                </div>
+                <!-- IMAGEN -->
+                <div class="form-group">
+                  <label for="urlImage">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;"> Entrada de archivo </font>
+                    </font>
+                  </label>
+                  <input type="file" (change)="setUploadEvent($event)" accept=".png,.jpg" name="imageURL">
+                  <small id="fileHelp" class="form-text text-muted">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;"> Seleccione una imagen referente al evento. </font>
+                    </font>
+                  </small>
+                  <img [src]="imageUrl" class="center-block col-md-10">
+                  <br>
+
+                </div>
+                <!-- FIN INSCRIPCION -->
+                <div class="jumbotron">
+                  <label class="col-form-label" for="location">Fin de inscripcion</label>
+                  <dl-date-time-picker name="lastRegisterDate" [(ngModel)]="event.lastRegisterDate"></dl-date-time-picker>
+                </div>
+                <!-- BOTON REGISTRAR-->
+                <button class="btn btn-success" (click)="onSubmit()" data-toggle="modal" data-target="#success">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                      <i class="fas fa-plus-circle"></i>
+                      Registrar
+                    </font>
+                  </font>
+                </button>
+                <!-- BOTON LIMPIAR-->
+                <button type="reset" class="btn btn-danger btn -lg" (click)="resetForm(eventForm)">
+                  <font style="vertical-align: inherit;">
+                    <font style="vertical-align: inherit;">
+                      <i class="fas fa-sync-alt"></i>
+                      Limpiar
+                    </font>
+                  </font>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-        
-       </div> 
+
+      </div>
     </div>
   </header>
 </div>
+
+<!--MODAL-->
+<div class="modal" id="success">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title"><span class="badge badge-success">Registro Exitoso</span></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click) = "goToEvents()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Evento registrado con exito.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click) = "goToEvents()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
