@@ -2,7 +2,6 @@ const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
 const admin = require('firebase-admin');
 var smtpTransport = require('nodemailer-smtp-transport');
-const admin = require('firebase-admin');
 const CryptoJS = require('crypto-js');
 /// <reference types="crypto-js" />
 // Habilitar en gmail:
