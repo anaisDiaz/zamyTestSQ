@@ -14,7 +14,7 @@ import { AttendanceService } from '../../../services/attendance-service/attendan
 
 export class MyEventListComponent implements OnInit, OnDestroy {
   subscriber: any;
-  myEvents: Event[];
+  myEvents: Event[] = [];
   isAdmin: Boolean;
   participantId: string;
 
@@ -27,23 +27,15 @@ export class MyEventListComponent implements OnInit, OnDestroy {
       console.log('participantId: ' + this.participantId);
       this.isAdmin = authUser.email.replace(AppSettings.emailDomain, '').endsWith(AppSettings.adminSuffix);
       this.subscriber = this.eventService.getAll().subscribe(eventList => {
-        this.myEvents = this.getMyEvents(eventList);
+        eventList.forEach(event => {
+          this.attendanceService.getAttendanceById(event.id, this.participantId).subscribe(participant => {
+            if (participant.inscriptionDate !== undefined && !this.myEvents.includes(event)) {
+              this.myEvents.push(event);
+            }
+          });
+        });
       });
     });
-
-  }
-
-  getMyEvents(events: Event[]): Event[] {
-    const myEvents: Event[] = [];
-    events.forEach(event => {
-      this.attendanceService.getAttendanceById(event.id, this.participantId).subscribe(attendance => {
-        if (attendance !== undefined) {
-          myEvents.push(event);
-        }
-      });
-    }
-    );
-    return myEvents;
   }
 
   goToEventDetails(eventId: string): void {
