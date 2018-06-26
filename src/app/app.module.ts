@@ -66,7 +66,8 @@ const firebaseConfig = {
     FirebaseDatabaseService,
     UserService,
     EventService,
-    AttendanceService],
+    AttendanceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

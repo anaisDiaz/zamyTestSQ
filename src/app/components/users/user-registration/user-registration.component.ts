@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../../models/user.model';
 import { UserService } from '../../../services/user-service/user.service';
-import { AuthService } from '../../../services/firebase-services/auth.service';
 import { AppSettings } from '../../../app.settings';
 import { FirebaseStorageService } from '../../../services/firebase-services/firebase-storage.service';
 import { FolderName } from '../../../enums/folder-name';
 import { FileName } from '../../../enums/file-name';
+import { AES } from 'crypto-js';
+/// <reference types="crypto-js" />
 
 @Component({
   selector: 'app-user-registration',
@@ -45,13 +46,14 @@ export class UserRegistrationComponent implements OnInit {
     this.user.role = 0;
     this.user.email = this.user.username + AppSettings.emailDomain;
     this.user.password = this.encrypt(this.user.password);
+    console.log('pass = ' + this.user.password);
     this.userService.save(this.user.id, this.user);
     this.uploadImage(this.uploadEvent);
     console.log('Se registro la solicitud del usuario');
   }
 
   encrypt(text: string): string {
-    return text + '.';
+    return AES.encrypt(text, AppSettings.key).toString();
   }
 
   setUploadEvent(event) {

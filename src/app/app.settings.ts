@@ -3,6 +3,7 @@ export class AppSettings {
     public static adminSuffix = '.zamy.admin';
     public static imageFileExtension = '.jpg';
     public static mainURL = 'http://localhost:4200';
+    public static key = '1223298293233';
     public static welcomeMailSubject = 'Bienvenido(a) a Zamy Club!!!';
     public static welcomeMailBody = '<img src="https://firebasestorage.googleapis.com' +
         '/v0/b/zamy-d9d98.appspot.com/o/zamy-web%2FlogoZamy2.jpg?alt=media&token=b4a19afa-' +
