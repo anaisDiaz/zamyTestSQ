@@ -2,7 +2,14 @@
 <h2 align="center">Usuarios pendientes para aprobar</h2>
 <div class="list-group" *ngFor="let pendingUser of pendingUsers">
   <a href="/pending-user/{{pendingUser.id}}" class="list-group-item list-group-item-action">
-    {{pendingUser.firstname}} {{pendingUser.lastname}}
+    <p class="lead"> Nombre: {{pendingUser.firstname}} {{pendingUser.lastname}}</p> 
+    <p class="lead"> Cargo : {{pendingUser.position}}</p> 
+    <div class="image">
+        <img src="{{voucherImageURL}}" alt="Avatar" style="width:100%">
+      </div>
+      <p>
+        
+      </p>
   </a>
 </div>
 <div *ngIf="pendingUsers.length==0">
