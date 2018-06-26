@@ -24,8 +24,10 @@ import { UserRegistrationComponent } from './components/users/user-registration/
 import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
-import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
+import { NotificationService } from './services/notification-service/notification.service';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
+import { DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -49,6 +51,7 @@ const firebaseConfig = {
     UserRegistrationComponent,
     NavigationBarComponent,
     MyEventListComponent,
+    NotificationListComponent,
     PasswordRestorationComponent
   ],
   imports: [
@@ -57,7 +60,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
-    DlDateTimePickerDateModule
+    DlDateTimePickerModule
   ],
   providers: [
     AuthService,
@@ -66,7 +69,8 @@ const firebaseConfig = {
     FirebaseDatabaseService,
     UserService,
     EventService,
-    AttendanceService
+    AttendanceService,
+    NotificationService
   ],
   bootstrap: [AppComponent]
 })
