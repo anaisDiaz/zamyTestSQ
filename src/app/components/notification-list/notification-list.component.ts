@@ -4,6 +4,7 @@ import { NotificationService } from '../../services/notification-service/notific
 import { AuthService } from '../../services/firebase-services/auth.service';
 import { AppSettings } from '../../app.settings';
 import { AttendanceService } from '../../services/attendance-service/attendance.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notification-list',
@@ -14,9 +15,10 @@ export class NotificationListComponent implements OnInit, OnDestroy {
   notifications: Notification[] = [];
   participantId: string;
   subscriber: any;
+  alert: boolean;
 
   constructor(private notificationService: NotificationService, private authService: AuthService,
-    private attendanceService: AttendanceService) { }
+    private attendanceService: AttendanceService, private router: Router) { }
 
   ngOnInit() {
     this.authService.getAuth().forEach(authUser => {
@@ -25,7 +27,9 @@ export class NotificationListComponent implements OnInit, OnDestroy {
         notifications.forEach(notification => {
           this.attendanceService.getAttendanceById(notification.eventId, this.participantId).subscribe(
             participant => {
+              this.alert = true;
               if (participant.inscriptionDate !== undefined && !this.notifications.find(n => n.eventId === notification.eventId)) {
+                
                 this.notifications.push(notification);
               }
             }
@@ -37,6 +41,15 @@ export class NotificationListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscriber.unsubscribe();
+  }
+
+  inactiveAlert() {
+    this.alert = false;
+  }
+
+  goToEventDetails(eventId: string): void {
+    console.log('eventId = ' + eventId);
+    this.router.navigate(['event', eventId]);
   }
 
 }

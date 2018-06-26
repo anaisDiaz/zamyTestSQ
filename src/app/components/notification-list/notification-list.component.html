@@ -1,14 +1,12 @@
-<app-navigation-bar [isAdmin] = "isAdmin">
-<div class="btn-group" role="group" aria-label="Button group with nested dropdown" align="right">
-        <button type="button" class="btn btn-primary" >Notificaciones</button>
-        <div class="btn-group" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ></button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 40px, 0px); top: 0px; left: 0px; will-change: transform;">
-            <a class="dropdown-item"  *ngFor="let notification of notifications" (click)="goToEventDetails(event.id)" >{{notification.eventId}}</a>
-          </div>
-        </div>
+<div class="dropdown"  >
+  <button (click)="alert = false" [ngClass]="{'btn': true, 'dropdown-toggle':true, 'btn-danger':alert, 'btn-secondary': !alert }" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notificaciones
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"  *ngFor="let notification of notifications" (click)="goToEventDetails(notification.eventId)">
+      <p>El evento {{notification.eventName}}</p>
+      <p>ha sido actualizado</p>
+      <div class="dropdown-divider"></div>
+    </a>
+  </div>
 </div>
-</app-navigation-bar>
-
-
-

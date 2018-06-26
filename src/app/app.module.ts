@@ -27,6 +27,7 @@ import { MyEventListComponent } from './components/users/my-event-list/my-event-
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { NotificationService } from './services/notification-service/notification.service';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
+import { DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -58,7 +59,8 @@ const firebaseConfig = {
     BrowserModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
-    AppRoutingModule
+    AppRoutingModule,
+    DlDateTimePickerModule
   ],
   providers: [
     AuthService,
