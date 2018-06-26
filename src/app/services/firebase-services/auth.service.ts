@@ -5,7 +5,6 @@ import { AppSettings } from '../../app.settings';
 @Injectable()
 export class AuthService {
   actionCodeSettings = {
-    // Your redirect URL
     url: 'https://localhost:4200/login',
     handleCodeInApp: true
   };
@@ -29,7 +28,7 @@ export class AuthService {
   }
 
   resetPassword(email: string) {
-    return this.angularFireAuth.auth.sendPasswordResetEmail(email)
+    return this.angularFireAuth.auth.sendPasswordResetEmail(email, this.actionCodeSettings)
       .then(() => console.log('reset password - email sent'))
       .catch((error) => console.log(error));
   }
