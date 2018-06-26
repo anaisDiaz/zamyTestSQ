@@ -2,10 +2,16 @@
 .space{
     padding: 60px;
 }
+
+.container{
+    margin-top: 5px;
+    width: 850px;
+}
+
 .card{
-    background-color: rgba(6, 20, 10, 0.952);
+    background-color: rgba(140, 161, 146, 0.952);
     opacity: .7;
-    color: beige;
+    color: rgb(224, 220, 245);
 }
 
 .btn-success{
@@ -30,4 +36,8 @@
 .centrado{
 	margin:10px auto;
 	display:block;
+}
+
+.form-group{
+    color: black;
 }
