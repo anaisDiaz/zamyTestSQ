@@ -44,7 +44,7 @@ export class UserRegistrationComponent implements OnInit {
 
   registerUserApplication(): void {
     this.user.role = 0;
-    this.user.email = this.user.username + AppSettings.emailDomain;
+    this.user.username = this.user.email.replace(AppSettings.emailDomain, '');
     this.user.password = this.encrypt(this.user.password);
     console.log('pass = ' + this.user.password);
     this.userService.save(this.user.id, this.user);
