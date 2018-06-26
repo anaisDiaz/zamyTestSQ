@@ -7,6 +7,7 @@ import { FileName } from '../../../enums/file-name';
 import { FolderName } from '../../../enums/folder-name';
 import { AppSettings } from '../../../app.settings';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event-registration',
@@ -20,7 +21,7 @@ export class EventRegistrationComponent implements OnInit {
   imageUrl = '../assets/upload image.png';
   fileToUpload: File = null;
 
-  constructor(private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
+  constructor(private router: Router, private eventService: EventService, private firebaseStorageService: FirebaseStorageService) { }
 
   ngOnInit() {
     this.event = new Event('', '', '', new Date(), 0, new Date(), '');
@@ -63,4 +64,7 @@ export class EventRegistrationComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
+  goToEvents() {
+    this.router.navigate(['event', 'all']);
+  }
 }

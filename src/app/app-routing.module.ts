@@ -9,6 +9,7 @@ import { PendingUsersListComponent } from './components/users/pending-users-list
 import { PendingUserDetailComponent } from './components/users/pending-user-detail/pending-user-detail.component';
 import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
+import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
 
 
 const routes: Routes = [
@@ -20,8 +21,9 @@ const routes: Routes = [
   { path: 'event/:id/participants', component: AttendanceListComponent },
   { path: 'pending-user/all', component: PendingUsersListComponent },
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
-  { path: 'user/registration', component: UserRegistrationComponent },
-  { path: 'my-events', component: MyEventListComponent}
+  { path: 'my-events', component: MyEventListComponent},
+  { path: 'user-registration', component: UserRegistrationComponent },
+  { path: 'password-restoration' , component: PasswordRestorationComponent }
 ];
 
 @NgModule({
