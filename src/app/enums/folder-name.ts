@@ -1,3 +1,4 @@
 export enum FolderName {
-    events = 'events'
+    events = 'events',
+    users = 'users'
 }

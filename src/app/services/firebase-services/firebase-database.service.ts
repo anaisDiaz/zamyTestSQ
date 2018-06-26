@@ -7,7 +7,6 @@ import { map } from 'rxjs/operators';
 export class FirebaseDatabaseService {
 
   constructor(private angularFirestore: AngularFirestore) {
-    angularFirestore.firestore.settings({ timestampsInSnapshots: true });
   }
 
   getCollection(collectionName: string): Observable<any> {

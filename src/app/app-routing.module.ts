@@ -12,6 +12,7 @@ import { MyEventListComponent } from './components/users/my-event-list/my-event-
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
 
+
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
   { path: 'event/registration', component: EventRegistrationComponent },
@@ -21,9 +22,8 @@ const routes: Routes = [
   { path: 'event/:id/participants', component: AttendanceListComponent },
   { path: 'pending-user/all', component: PendingUsersListComponent },
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
-  { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'my-events', component: MyEventListComponent},
-  { path: 'notification/all', component: NotificationListComponent},
+  { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'password-restoration' , component: PasswordRestorationComponent }
 ];
 

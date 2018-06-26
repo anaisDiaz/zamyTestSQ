@@ -2,10 +2,12 @@ const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
 const admin = require('firebase-admin');
 var smtpTransport = require('nodemailer-smtp-transport');
+const admin = require('firebase-admin');
+const CryptoJS = require('crypto-js');
+/// <reference types="crypto-js" />
 // Habilitar en gmail:
 // 1. https://www.google.com/settings/security/lesssecureapps
 // 2. https://accounts.google.com/DisplayUnlockCaptcha
-
 admin.initializeApp(functions.config());
 const gmailEmail = functions.config().gmail.email;
 const gmailPassword = functions.config().gmail.password;
@@ -35,6 +37,19 @@ exports.createNotification = functions.firestore.document('events/{eventId}')
             return console.log('created notification');
         }).catch(err => { return console.log('error: ' + err); });
     });
+
+exports.createNewUser = functions.firestore.document('users/{userId}').onUpdate((change, context) => {
+    if (change.after.data().status === 1 && change.before.data().status === 0) {
+        return admin.auth().createUser({
+            email: change.after.data().email,
+            password: CryptoJS.AES.decrypt(change.after.data().password, '1223298293233').toString(CryptoJS.enc.Utf8)
+        }).then(() =>
+            console.log("Successfully created new user:")
+        ).catch(error =>
+             console.log("Error creating new user:", error)
+        );
+    }
+});
 
 function sendWelcomeEmail(email, firstName, subject, body) {
     const mailOptions = {

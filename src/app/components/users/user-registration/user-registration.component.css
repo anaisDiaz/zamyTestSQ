@@ -1,0 +1,43 @@
+
+.space{
+    padding: 60px;
+}
+
+.container{
+    margin-top: 5px;
+    width: 850px;
+}
+
+.card{
+    background-color: rgba(140, 161, 146, 0.952);
+    opacity: .7;
+    color: rgb(224, 220, 245);
+}
+
+.btn-success{
+    width: 30%;
+    margin: 20px;
+    margin-left: 50px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+.btn-danger{
+    width: 30%;
+    margin: 30px;
+    margin-left: 120px;
+    padding: 3px;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.centrado{
+	margin:10px auto;
+	display:block;
+}
+
+.form-group{
+    color: black;
+}
