@@ -4,10 +4,6 @@ import { AppSettings } from '../../app.settings';
 
 @Injectable()
 export class AuthService {
-  actionCodeSettings = {
-    url: 'https://localhost:4200/login',
-    handleCodeInApp: true
-  };
 
   constructor(private angularFireAuth: AngularFireAuth) { }
 
