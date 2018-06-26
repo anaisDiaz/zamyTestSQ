@@ -1,8 +1,6 @@
 <app-navigation-bar [isAdmin]="isAdmin"></app-navigation-bar>
-<h1 style="color:teal" align="center">Usuarios pendientes para aprobar</h1>
-<div class="container" align="center">
-<div class="card">
-<div class="w3-ul" *ngFor="let pendingUser of pendingUsers">
+<h2 align="center">Usuarios pendientes para aprobar</h2>
+<div class="list-group" *ngFor="let pendingUser of pendingUsers">
   <a href="/pending-user/{{pendingUser.id}}" class="list-group-item list-group-item-action">
     <p class="lead"> Nombre: {{pendingUser.firstname}} {{pendingUser.lastname}}</p> 
     <p class="lead"> Cargo : {{pendingUser.position}}</p> 
@@ -15,7 +13,5 @@
   </a>
 </div>
 <div *ngIf="pendingUsers.length==0">
-  <p class="lead">No hay solicitudes</p>
-</div>
-</div> 
+  <p class="lead" align="center">No hay solicitudes</p>
 </div>

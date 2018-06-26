@@ -1,3 +1,6 @@
+<nav>
+  <img src="https://firebasestorage.googleapis.com/v0/b/zamy-d9d98.appspot.com/o/zamy-web%2FlogoZamyNavBar.jpg?alt=media&token=31399c99-0ca7-4433-968e-5a250f13fc94">
+</nav>
 <div class="container">
   <header id="#FONDO">
     <div class="space">
@@ -91,15 +94,15 @@
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title"><span class="badge badge-success">Registro Exitoso</span></h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)= "goToLogin()">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <p>Usuario registrado con exito.</p>
+            <p>Procesaremos tu solicitud. Recibirás un mensaje en tu correo</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)= "goToLogin()">Cerrar</button>
           </div>
         </div>
       </div>

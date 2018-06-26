@@ -6,6 +6,7 @@ import { FirebaseStorageService } from '../../../services/firebase-services/fire
 import { FolderName } from '../../../enums/folder-name';
 import { FileName } from '../../../enums/file-name';
 import { AES } from 'crypto-js';
+import { Router } from '@angular/router';
 /// <reference types="crypto-js" />
 
 @Component({
@@ -21,7 +22,8 @@ export class UserRegistrationComponent implements OnInit {
   fileToUpload: File = null;
   emailDomain = AppSettings.emailDomain;
 
-  constructor(private firebaseStorageService: FirebaseStorageService, private userService: UserService) { }
+  constructor(private router: Router, 
+    private firebaseStorageService: FirebaseStorageService, private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User(null, null, null, 0, null, null, null, null, null, null);
@@ -65,6 +67,10 @@ export class UserRegistrationComponent implements OnInit {
       this.imageUrl = _event.target.result;
     };
     reader.readAsDataURL(this.fileToUpload);
+  }
+
+  goToLogin() {
+    this.router.navigate(['login']);
   }
 
 }
