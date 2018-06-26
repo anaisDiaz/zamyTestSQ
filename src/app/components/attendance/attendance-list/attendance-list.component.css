@@ -12,9 +12,13 @@ h3{
 }
 
 .table {
-    border-radius: 5px;
+    
     width: 50%;
     margin: 15px auto;
+}
+
+.table-info{
+    color: rgb(0, 45, 51);
 }
 .table td, .table th{
     text-align: center
