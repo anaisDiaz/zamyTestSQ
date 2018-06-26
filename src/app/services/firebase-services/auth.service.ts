@@ -7,10 +7,6 @@ export class AuthService {
 
   constructor(private angularFireAuth: AngularFireAuth) { }
 
-  registerUser(username: string, password: string): Promise<any> {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(username + AppSettings.emailDomain, password);
-  }
-
   logout(): Promise<any> {
     return this.angularFireAuth.auth.signOut();
   }

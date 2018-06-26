@@ -36,11 +36,9 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
   approve() {
     this.pendingUser.status = 1;
     console.log(this.pendingUser.password);
-    this.authService.registerUser(this.pendingUser.username, this.decrypt(this.pendingUser.password)).then(() => {
-      this.userService.update(this.pendingUserId, this.pendingUser);
-      console.log('usuario aprobado');
-      this.mailerService.sendWelcomeMail(this.pendingUser.username + AppSettings.emailDomain, this.pendingUser.firstname);
-    });
+    this.userService.update(this.pendingUserId, this.pendingUser);
+    console.log('usuario aprobado');
+    this.mailerService.sendWelcomeMail(this.pendingUser.username + AppSettings.emailDomain, this.pendingUser.firstname);
   }
 
   reject() {
