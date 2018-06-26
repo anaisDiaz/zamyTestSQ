@@ -26,7 +26,6 @@ import { NavigationBarComponent } from './components/navigation-bar/navigation-b
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
-import { EncryptionService } from 'angular-encryption-service';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCOu0Lwpp5d_eRnIyJHcVypT2E-UD9HF8A',
@@ -58,8 +57,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
-    DlDateTimePickerDateModule,
-    EncryptionService
+    DlDateTimePickerDateModule
   ],
   providers: [
     AuthService,
@@ -68,8 +66,8 @@ const firebaseConfig = {
     FirebaseDatabaseService,
     UserService,
     EventService,
-    AttendanceService,
-    EncryptionService],
+    AttendanceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
