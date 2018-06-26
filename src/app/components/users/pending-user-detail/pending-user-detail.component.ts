@@ -5,6 +5,9 @@ import { UserService } from '../../../services/user-service/user.service';
 import { AppSettings } from '../../../app.settings';
 import { AuthService } from '../../../services/firebase-services/auth.service';
 import { MailerService } from '../../../services/mailer-service/mailer.service';
+import * as CryptoJS from 'crypto-js';
+/// <reference types="crypto-js" />
+import { AES } from 'crypto-js';
 
 @Component({
   selector: 'app-pending-user-detail',
@@ -20,7 +23,7 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
   rejectionReason: string;
 
   constructor(private authService: AuthService, private activatedRoute: ActivatedRoute,
-     private userService: UserService, private mailerService: MailerService, private router: Router) { }
+    private userService: UserService, private mailerService: MailerService, private router: Router) { }
 
   ngOnInit() {
     this.authService.getAuth().forEach(authUser => {
@@ -32,7 +35,8 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
 
   approve() {
     this.pendingUser.status = 1;
-    this.authService.registerUser(this.pendingUser.username, this.pendingUser.password).then(() => {
+    console.log(this.pendingUser.password);
+    this.authService.registerUser(this.pendingUser.username, this.decrypt(this.pendingUser.password)).then(() => {
       this.userService.update(this.pendingUserId, this.pendingUser);
       console.log('usuario aprobado');
       this.mailerService.sendWelcomeMail(this.pendingUser.username + AppSettings.emailDomain, this.pendingUser.firstname);
@@ -43,6 +47,10 @@ export class PendingUserDetailComponent implements OnInit, OnDestroy {
     console.log('usuario desaprobado');
     this.mailerService.sendRejectionMail(this.pendingUser.email, this.pendingUser.firstname, this.rejectionReason);
     this.userService.deleteUserById(this.pendingUser.id);
+  }
+
+  decrypt(encryptedText: string): string {
+    return AES.decrypt(encryptedText, AppSettings.key).toString(CryptoJS.enc.Utf8);
   }
 
   goToPendingUsersList() {
