@@ -23,7 +23,6 @@ const routes: Routes = [
   { path: 'event/:id/participants', component: AttendanceListComponent },
   { path: 'pending-user/all', component: PendingUsersListComponent },
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
-  { path: 'my-events', component: MyEventListComponent},
   { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'my-events', component: MyEventListComponent },
   { path: 'event/:id/edit', component: EventEditingComponent },
