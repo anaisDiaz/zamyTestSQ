@@ -63,6 +63,7 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
+    DlDateTimePickerDateModule,
     DlDateTimePickerModule
   ],
   providers: [
