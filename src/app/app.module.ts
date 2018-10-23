@@ -24,6 +24,8 @@ import { UserRegistrationComponent } from './components/users/user-registration/
 import { AttendanceService } from './services/attendance-service/attendance.service';
 import { NavigationBarComponent } from './components/navigation-bar/navigation-bar.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
+import { DlDateTimePickerDateModule } from 'angular-bootstrap-datetimepicker';
+import { EventEditingComponent } from './components/events/event-editing/event-editing.component';
 import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { NotificationService } from './services/notification-service/notification.service';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
@@ -51,6 +53,7 @@ const firebaseConfig = {
     UserRegistrationComponent,
     NavigationBarComponent,
     MyEventListComponent,
+    EventEditingComponent,
     NotificationListComponent,
     PasswordRestorationComponent
   ],
