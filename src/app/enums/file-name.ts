@@ -1,3 +1,4 @@
 export enum FileName {
-    eventImage = 'image'
+    eventImage = 'image',
+    voucher = 'voucher'
 }

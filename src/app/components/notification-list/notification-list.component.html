@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button (click)="alert = false"  class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notificaciones ({{notifications.length}})
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"  *ngFor="let notification of notifications" href="event/{{notification.eventId}}">
+      <p>El evento {{notification.eventName}}</p>
+      <p>ha sido actualizado</p>
+      <div class="dropdown-divider"></div>
+    </a>
+  </div>
+</div>

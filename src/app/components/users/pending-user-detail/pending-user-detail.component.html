@@ -1,6 +1,15 @@
 <app-navigation-bar [isAdmin]="isAdmin"></app-navigation-bar>
-<div *ngIf="pendingUser">
-    <label class="col-sm-2 col-form-label">{{pendingUser.firstname}}</label>
+<h2 align="center">Solicitud de registro</h2>
+<div *ngIf="pendingUser" align="center">
+        <p class="lead"> Nombre: {{pendingUser.firstname}} {{pendingUser.lastname}}</p> 
+        <p class="lead"> Cargo : {{pendingUser.position}}</p> 
+        <p class="lead"> Foto de voucher : </p> 
+        <div class="image">
+            <img src="{{pendingUser.voucherImageURL}}" alt="Avatar" style="width:40%">
+          </div>
+          <p>
+            
+          </p>
     <button type="button" class="btn btn-info" (click)="approve()" data-toggle="modal" data-target="#successAproval">Aprobar</button>
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#rejectionReason">Rechazar</button>
 </div>

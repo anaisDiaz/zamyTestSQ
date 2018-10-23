@@ -1,16 +1,109 @@
-<label class="col-form-label" for="emailField">
-  Email</label>
-<input [(ngModel)]="user.email" type="text" class="form-control" placeholder="email" id="emailField">
-
-<label class="col-form-label" for="firstNameField">
-  Nombres</label>
-<input [(ngModel)]="user.firstname" type="text" class="form-control" placeholder="nombres" id="firstNameField">
-
-<label class="col-form-label" for="idField">
-  Codigo de matricula</label>
-<input [(ngModel)]="user.id" type="text" class="form-control" placeholder="codigo de matricula" id="idField">
-
-<label for="passwordField">Password</label>
-<input [(ngModel)]="user.password" type="password" class="form-control" id="passwordField" placeholder="Password">
-
-<button type="submit" class="btn btn-primary" (click)="registerUserApplication()">Continuar</button>
+<nav>
+  <img src="https://firebasestorage.googleapis.com/v0/b/zamy-d9d98.appspot.com/o/zamy-web%2FlogoZamyNavBar.jpg?alt=media&token=31399c99-0ca7-4433-968e-5a250f13fc94">
+</nav>
+<div class="container">
+  <header id="#FONDO">
+    <div class="space">
+      <div class="row">
+        <!--REGISTRO -->
+        <div class="col-md-10 mx-auto mt-2">
+          <div class="jumbotron">
+            <br>
+            <h3 class="text-center">Crear una Cuenta</h3>
+            <div class="card-body">
+              <form #eventForm="ngForm">
+                <!-- Codigo -->
+                <div class="form-group">
+                    <label class="col-form-label" for="name">Codigo</label>
+                    <input type="text" class="form-control"  name="Codigo" #name="ngModel" [(ngModel)]="user.id"
+                      required>
+                  </div>
+                <!-- NOMBRE -->
+                <div class="form-group">
+                  <label class="col-form-label" for="name">Nombre</label>
+                  <input type="text" class="form-control"  name="name" #name="ngModel" [(ngModel)]="user.firstname"
+                    required>
+                </div>
+                <!-- APELLIDO -->
+                <div class="form-group">
+                  <label class="col-form-label" for="name">Apellido</label>
+                  <input type="text" class="form-control"  name="description" #description="ngModel" [(ngModel)]="user.lastname"
+                    required>
+                </div>
+                <!-- correo -->
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Correo</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"name="Correo" #name="ngModel" [(ngModel)]="user.email" placeholder=example{{emailDomain}} >      
+                  </div>
+                  <!-- contraseña -->
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1"name="Contraseña" #name="ngModel" [(ngModel)]="user.password">
+                  </div>
+                <!-- cargo -->
+                  <div class="form-group">
+                      <label for="exampleSelect1">cargo</label>
+                      <select class="form-control" id="exampleSelect1" name="cargo" #name="ngModel" [(ngModel)]="user.position">
+                        <option>Programador</option>
+                        <option>Secretaria de RRHH</option>
+                        <option>Jefe de Seguridad Informatica</option>
+                        <option>Analista de Sistemas</option>
+                        <option>Practicante</option>
+                      </select>
+                    </div>
+                <!-- IMAGEN -->
+                <div class="form-group">
+                    <label for="urlImage">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;"> Entrada de archivo </font>
+                      </font>
+                    </label>
+                    <input type="file" (change)="setUploadEvent($event)" accept=".png,.jpg" name="imageURL">
+                    <small id="fileHelp" class="form-text text-muted">
+                      <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;"> Seleccione una imagen del voucher. </font>
+                      </font>
+                    </small>
+                    <img [src]="imageUrl" class="center-block col-md-10">
+                    <br>
+  
+                  </div>
+                <!-- BOTON REGISTRAR-->
+                <button class="btn btn-success" (click)="registerUserApplication()" data-toggle="modal" data-target="#success">
+                    <font style="vertical-align: inherit;">
+                      <font style="vertical-align: inherit;">
+                        <i class="fas fa-plus-circle"></i>
+                        Regístrate
+                      </font>
+                    </font>
+                  </button>
+                  
+                </form>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+    </header>
+  </div>
+  
+  <!--MODAL-->
+  <div class="modal" id="success">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title"><span class="badge badge-success">Registro Exitoso</span></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)= "goToLogin()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Procesaremos tu solicitud. Recibirás un mensaje en tu correo</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)= "goToLogin()">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>

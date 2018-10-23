@@ -10,7 +10,9 @@ import { PendingUserDetailComponent } from './components/users/pending-user-deta
 import { UserRegistrationComponent } from './components/users/user-registration/user-registration.component';
 import { MyEventListComponent } from './components/users/my-event-list/my-event-list.component';
 import { EventEditingComponent } from './components/events/event-editing/event-editing.component';
+import { NotificationListComponent } from './components/notification-list/notification-list.component';
 import { PasswordRestorationComponent } from './components/users/password-restoration/password-restoration.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full'},
@@ -21,6 +23,7 @@ const routes: Routes = [
   { path: 'event/:id/participants', component: AttendanceListComponent },
   { path: 'pending-user/all', component: PendingUsersListComponent },
   { path: 'pending-user/:id', component: PendingUserDetailComponent },
+  { path: 'my-events', component: MyEventListComponent},
   { path: 'user-registration', component: UserRegistrationComponent },
   { path: 'my-events', component: MyEventListComponent },
   { path: 'event/:id/edit', component: EventEditingComponent },

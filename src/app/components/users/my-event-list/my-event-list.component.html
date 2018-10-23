@@ -9,9 +9,11 @@
         <h6><strong>Fecha: </strong>{{myEvent.date.toDate() | date : " MMMM d, EEEE , y"}}</h6>
         <h6><strong>Hora: </strong> :{{myEvent.date.toDate() |  date: 'h:mma'}} </h6>  
       </div>
-      <div class="boton col-sm-2"><button type="button" class="btn btn-info"  (click)="goToEventDetails(event.id)"><h6>Ver más</h6></button></div>
+      <div class="boton col-sm-2"><button type="button" class="btn btn-info"  (click)="goToEventDetails(myEvent.id)"><h6>Ver más</h6></button></div>
     </div>
     
   </li>
-
+</div>
+<div *ngIf="myEvents.length==0">
+  <p class="lead" align="center">No esta participando en ningun evento</p>
 </div>
